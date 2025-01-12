@@ -1,0 +1,215 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WeedGuard - Login</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for Social Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-green: #2ecc71;
+            --dark-green: #27ae60;
+            --light-background: #f4f6f7;
+            --text-dark: #2c3e50;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--light-background);
+            line-height: 1.6;
+        }
+
+        .login-container {
+            background-color: white;
+            padding: 40px 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin-top: 240px;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .login-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .login-header h2 {
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .login-header p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus {
+            border-color: var(--primary-green);
+            box-shadow: 0 0 0 3px rgba(46, 204, 113, 0.1);
+            outline: none;
+        }
+
+        .form-options {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .remember-me {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .remember-me input[type="checkbox"] {
+            width: 16px;
+            height: 16px;
+            border: 2px solid #e0e0e0;
+        }
+
+        .forgot-password {
+            color: var(--primary-green);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .forgot-password:hover {
+            color: var(--dark-green);
+        }
+
+        .btn-login {
+            background-color: var(--primary-green);
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 10px;
+            width: 100%;
+            font-size: 16px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn-login:hover {
+            background-color: var(--dark-green);
+            transform: translateY(-2px);
+        }
+
+        .footer {
+            background-color: var(--text-dark);
+            color: white;
+            padding: 50px 0;
+            margin-top: 150px;
+        }
+
+        .footer .social-icons a {
+            font-size: 24px;
+            margin: 0 15px;
+            color: white;
+            transition: color 0.3s;
+        }
+
+        .footer .social-icons a:hover {
+            color: var(--primary-green);
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow fixed-top">
+    <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="#">
+            <img src="{% static 'assets/images/pngtree-sweet-potato-vegetarian-food-icon-and-vector-logo-png-image_1570272.jpg' %}" alt="WeedGuard Logo" style="width: 150px; height: auto;">
+            <span class="ms-2 fw-bold text-success" style="font-size: 1.5rem;">WeedGuard</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto align-items-center">
+                <li class="nav-item">
+                    <a class="nav-link text-dark fw-medium" href="{% url 'home' %}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="btn btn-success btn-sm px-3 text-white ms-3" href="{% url 'loginn' %}">
+                        <i class="fas fa-sign-in-alt me-1"></i> Login
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Login Section -->
+<section class="container">
+    <div class="login-container">
+        <div class="login-header">
+            <h2>Welcome Back!</h2>
+            <p>Please enter your credentials to access your account</p>
+        </div>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+            </div>
+            <button type="submit" class="btn-login">Sign In</button>
+        </form>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container text-center">
+        <p>© 2024 WeedGuard. All Rights Reserved.</p>
+        <div class="social-icons">
+            <a href="#" class="fab fa-facebook"></a>
+            <a href="#" class="fab fa-twitter"></a>
+            <a href="#" class="fab fa-instagram"></a>
+        </div>
+    </div>
+</footer>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

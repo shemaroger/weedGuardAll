@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WeedGuard Report</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <style>
+        :root {
+            --primary-green: #2ecc71;
+            --dark-green: #27ae60;
+            --light-green: #d4edda;
+            --background-color: #f4f6f8;
+            --card-shadow: 0 6px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        body {
+            background-color: var(--background-color);
+            font-family: 'Inter', 'Segoe UI', Roboto, sans-serif;
+        }
+
+        .report-container {
+            background: white;
+            border-radius: 16px;
+            box-shadow: var(--card-shadow);
+            overflow: hidden;
+            margin-top: 2rem;
+        }
+
+        .report-header {
+            background: linear-gradient(135deg, var(--primary-green), var(--dark-green));
+            color: white;
+            padding: 2.5rem;
+            text-align: center;
+            position: relative;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        }
+
+        .report-header h1 {
+            font-weight: 700;
+            letter-spacing: -1px;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .report-header h1 i {
+            margin-right: 15px;
+            font-size: 1.5em;
+        }
+
+        .section-header {
+            color: var(--dark-green);
+            border-bottom: 3px solid var(--primary-green);
+            padding-bottom: 0.75rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+        }
+
+        .section-header i {
+            margin-right: 10px;
+            color: var(--primary-green);
+        }
+
+        .stats-card {
+            background-color: var(--light-green);
+            border-left: 5px solid var(--dark-green);
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin-bottom: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .stats-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stats-card-icon {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            color: var(--dark-green);
+            opacity: 0.5;
+            font-size: 2em;
+        }
+
+        .table-striped tbody tr:nth-of-type(odd) {
+            background-color: rgba(46, 204, 113, 0.05);
+        }
+
+        .table thead {
+            background-color: var(--primary-green);
+            color: white;
+        }
+
+        .action-buttons {
+            background-color: #f9fbfc;
+            padding: 1.5rem;
+            border-top: 1px solid #e9ecef;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-green);
+            border-color: var(--primary-green);
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--dark-green);
+            border-color: var(--dark-green);
+        }
+
+        @media (max-width: 768px) {
+            .report-header {
+                padding: 1.5rem;
+            }
+
+            .stats-card {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container py-5">
+        <!-- Date Range Form -->
+        <form method="GET" action="{% url 'generate_report' %}" class="mb-4">
+            <div class="row g-3 align-items-center justify-content-center">
+                <div class="col-auto">
+                    <label for="start-date" class="form-label">
+                        <i class="bi bi-calendar-check me-2"></i>Start Date
+                    </label>
+                    <input type="date" id="start-date" name="start_date" class="form-control" required>
+                </div>
+                <div class="col-auto">
+                    <label for="end-date" class="form-label">
+                        <i class="bi bi-calendar-x me-2"></i>End Date
+                    </label>
+                    <input type="date" id="end-date" name="end_date" class="form-control" required>
+                </div>
+                <div class="col-auto">
+                    <button type="submit" class="btn btn-primary mt-4">
+                        <i class="bi bi-graph-up me-2"></i>Generate Report
+                    </button>
+                </div>
+            </div>
+        </form>
+
+        <div id="report-content" class="report-container">
+            <div class="report-header">
+                <h1>
+                    <i class="bi bi-shield-check"></i>
+                    WeedGuard Insights
+                </h1>
+                <p class="lead mb-0">{{ report_start_date }} to {{ report_end_date }}</p>
+            </div>
+
+            <div class="container py-4">
+                <!-- Farmers Statistics -->
+                <section class="mb-5">
+                    <h2 class="section-header">
+                        <i class="bi bi-people-fill"></i>
+                        Farmers Overview
+                    </h2>
+                    <div class="stats-card position-relative">
+                        <i class="bi bi-bar-chart-line stats-card-icon"></i>
+                        <div class="row align-items-center">
+                            <div class="col-md-4 text-center">
+                                <h3 class="h5 text-muted mb-2">
+                                    <i class="bi bi-person-badge me-2"></i>
+                                    Total Farmers
+                                </h3>
+                                <p class="h2 text-dark mb-0">{{ total_farmers }}</p>
+                            </div>
+                            <div class="col-md-8">
+                                <h3 class="h4 mb-3">
+                                    <i class="bi bi-calendar-plus me-2"></i>
+                                    New Farmers by Month
+                                </h3>
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>Month</th>
+                                                <th>New Farmers</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for month_data in new_farmers_by_month %}
+                                            <tr>
+                                                <td>{{ month_data.month }}</td>
+                                                <td>{{ month_data.new_farmers }}</td>
+                                            </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Predictions Statistics -->
+                <section class="mb-5">
+                    <h2 class="section-header">
+                        <i class="bi bi-lightning-charge-fill"></i>
+                        Prediction Insights
+                    </h2>
+                    <div class="row">
+                        <div class="col-md-4 mb-3">
+                            <div class="stats-card text-center position-relative">
+                                <i class="bi bi-speedometer2 stats-card-icon"></i>
+                                <h3 class="h5 text-muted mb-2">
+                                    <i class="bi bi-bullseye me-2"></i>
+                                    Total Predictions
+                                </h3>
+                                <p class="h2 text-dark">{{ total_predictions }}</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <div class="stats-card text-center position-relative">
+                                <i class="bi bi-bug stats-card-icon"></i>
+                                <h3 class="h5 text-muted mb-2">
+                                    <i class="bi bi-flower1 me-2"></i>
+                                    Weed Predictions
+                                </h3>
+                                <p class="h2 text-dark">{{ weed_predictions }}</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <div class="stats-card text-center position-relative">
+                                <i class="bi bi-tree-fill stats-card-icon"></i>
+                                <h3 class="h5 text-muted mb-2">
+                                    <i class="bi bi-sprout me-2"></i>
+                                    Crop Predictions
+                                </h3>
+                                <p class="h2 text-dark">{{ crop_predictions }}</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3 class="h4 mt-4 mb-3">
+                        <i class="bi bi-list-check me-2"></i>
+                        Predictions Breakdown
+                    </h3>
+                    <div class="table-responsive">
+                        <table class="table table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Month</th>
+                                    <th>Result</th>
+                                    <th>Count</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for prediction in predictions_by_month %}
+                                <tr>
+                                    <td>{{ prediction.month }}</td>
+                                    <td>{{ prediction.result }}</td>
+                                    <td>{{ prediction.count }}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+                <div class="action-buttons text-center">
+                    <button id="download-btn" class="btn btn-primary">
+                        <i class="bi bi-file-earmark-arrow-down me-2"></i>Download PDF
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('download-btn').addEventListener('click', function () {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+
+            // Add header
+            doc.setFontSize(18);
+            doc.setTextColor(40);
+            doc.setFont("helvetica", "bold");
+            doc.text("WeedGuard Report", 10, 20);
+
+            // Add content
+            doc.setFontSize(12);
+            doc.setFont("helvetica", "normal");
+            doc.text("Farmers Overview", 10, 40);
+            doc.text("Total Farmers: {{ total_farmers }}", 10, 50);
+
+            // Predictions section
+            doc.text("Prediction Insights", 10, 70);
+            doc.text(`Total Predictions: {{ total_predictions }}`, 10, 80);
+            doc.text(`Weed Predictions: {{ weed_predictions }}`, 10, 90);
+            doc.text(`Crop Predictions: {{ crop_predictions }}`, 10, 100);
+
+            // Save the file
+            doc.save("WeedGuard_Report.pdf");
+        });
+    </script>
+</body>
+
+</html>

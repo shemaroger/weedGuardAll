@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WeedGuard - Location and Image Analysis</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      color: #333;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      text-align: center;
+      color: #0056b3;
+    }
+
+    #map {
+      width: 100%;
+      max-width: 800px;
+      height: 400px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-container {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      width: 100%;
+      max-width: 800px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      margin-top: 20px;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    input[type="text"], input[type="file"] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      margin-bottom: 10px;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: bold;
+      width: 100%;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    #camera-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 20px;
+    }
+
+    video, img {
+      max-width: 100%;
+      border-radius: 8px;
+      margin: 10px 0;
+    }
+
+    #error-message {
+      color: red;
+      font-weight: bold;
+      margin-top: 10px;
+      display: none;
+    }
+
+    footer {
+      margin-top: 20px;
+      text-align: center;
+      color: #777;
+    }
+  </style>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</head>
+
+<body>
+  <h1>WeedGuard - Location and Image Analysis</h1>
+
+  <!-- Map Section -->
+  <div id="map"></div>
+
+  <!-- Form Section -->
+  <div class="form-container">
+    <form id="submit-form" method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+      <label for="coordinates">Selected Coordinates:</label>
+      <input type="text" id="coordinates" name="coordinates" placeholder="Fetching location..." readonly required>
+
+      <label for="site_name">Site Name:</label>
+      <input type="text" id="site_name" name="site_name" placeholder="Enter site name" required>
+
+      <label for="farmer">Farmer Name:</label>
+      <input type="text" id="farmer" name="farmer" placeholder="Enter farmer's name" required>
+
+      <label for="image-upload">Upload Image:</label>
+      <input type="file" id="image-upload" name="image" accept="image/*" required>
+
+      <div id="camera-container">
+        <video id="camera" autoplay></video>
+        <button type="button" id="capture-button">Capture Image</button>
+        <canvas id="canvas" style="display: none;"></canvas>
+      </div>
+
+      <div id="error-message">Image lacks sufficient green color!</div>
+
+      <button id="submit-button" disabled>Submit</button>
+    </form>
+  </div>
+
+  <footer>
+    &copy; 2024 WeedGuard. All Rights Reserved.
+  </footer>
+
+  <script>
+    const map = L.map('map');
+    let marker;
+
+    // Fetch user's location
+    function fetchCurrentLocation() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+          (position) => {
+            const { latitude, longitude } = position.coords;
+            map.setView([latitude, longitude], 13);
+            marker = L.marker([latitude, longitude], { draggable: true }).addTo(map);
+            document.getElementById('coordinates').value = `${latitude.toFixed(6)}, ${longitude.toFixed(6)}`;
+            marker.on('dragend', () => {
+              const newPosition = marker.getLatLng();
+              document.getElementById('coordinates').value = `${newPosition.lat.toFixed(6)}, ${newPosition.lng.toFixed(6)}`;
+            });
+          },
+          () => alert("Location not available.")
+        );
+      } else {
+        alert("Geolocation not supported.");
+      }
+    }
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 18,
+      attribution: '© OpenStreetMap contributors'
+    }).addTo(map);
+
+    fetchCurrentLocation();
+
+    // Camera and Image Validation
+    const camera = document.getElementById('camera');
+    const captureButton = document.getElementById('capture-button');
+    const canvas = document.getElementById('canvas');
+    const errorMessage = document.getElementById('error-message');
+    const submitButton = document.getElementById('submit-button');
+    const imageUpload = document.getElementById('image-upload');
+
+    // Start camera
+    async function startCamera() {
+      const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+      camera.srcObject = stream;
+    }
+
+    startCamera();
+
+    // Capture image and validate
+    captureButton.addEventListener('click', () => {
+      const context = canvas.getContext('2d');
+      canvas.width = camera.videoWidth;
+      canvas.height = camera.videoHeight;
+      context.drawImage(camera, 0, 0);
+      validateGreenColor(canvas);
+    });
+
+    // Validate image for green
+    function validateGreenColor(canvas) {
+      const context = canvas.getContext('2d');
+      const imageData = context.getImageData(0, 0, canvas.width, canvas.height);
+      const data = imageData.data;
+      let greenPixels = 0;
+      let totalPixels = data.length / 4;
+
+      for (let i = 0; i < data.length; i += 4) {
+        const [r, g, b] = [data[i], data[i + 1], data[i + 2]];
+        if (g > r && g > b && g > 100) greenPixels++;
+      }
+
+      const greenRatio = greenPixels / totalPixels;
+      if (greenRatio < 0.1) {
+        errorMessage.style.display = 'block';
+        submitButton.disabled = true;
+      } else {
+        errorMessage.style.display = 'none';
+        submitButton.disabled = false;
+      }
+    }
+  </script>
+</body>
+
+</html>

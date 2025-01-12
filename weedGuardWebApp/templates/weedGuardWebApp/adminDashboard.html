@@ -1,0 +1,266 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weed Guard Admin Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    
+    <style>
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+        }
+        
+        .chart-container {
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+        
+        .chart-container:hover {
+            transform: translateY(-5px);
+        }
+
+        .gradient-border {
+            position: relative;
+            background: linear-gradient(white, white) padding-box,
+                        linear-gradient(45deg, #4ade80, #22c55e) border-box;
+            border: 2px solid transparent;
+            border-radius: 0.75rem;
+        }
+
+        .stats-card {
+            transition: all 0.3s ease;
+            background: linear-gradient(145deg, #ffffff, #f3f4f6);
+            box-shadow: 5px 5px 15px #d1d5db, -5px -5px 15px #ffffff;
+        }
+
+        .stats-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 8px 8px 20px #d1d5db, -8px -8px 20px #ffffff;
+        }
+
+        .sidebar-link {
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
+        }
+
+        .sidebar-link:hover {
+            border-left: 3px solid #22c55e;
+            background: linear-gradient(90deg, #f0fdf4 0%, transparent 100%);
+        }
+
+        .active-link {
+            border-left: 3px solid #22c55e;
+            background: linear-gradient(90deg, #f0fdf4 0%, transparent 100%);
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-green-50 via-gray-50 to-blue-50 min-h-screen">
+    <div class="flex h-screen overflow-hidden">
+        <!-- Enhanced Sidebar -->
+        <div class="w-80 glass-effect shadow-lg p-6 flex flex-col">
+            <div class="flex items-center space-x-4 mb-10">
+                <img src="{% static 'assets/images/pngtree-sweet-potato-vegetarian-food-icon-and-vector-logo-png-image_1570272.jpg' %}" alt="WeedGuard Logo" class="w-12 h-12 rounded-xl shadow-md">
+                <h2 class="text-2xl font-bold bg-gradient-to-r from-green-600 to-green-400 bg-clip-text text-transparent">Weed Guard</h2>
+            </div>
+            
+            <nav class="flex-1">
+                <ul class="space-y-3">
+                    <li>
+                        <a href="#" class="sidebar-link active-link flex items-center p-4 text-gray-700 rounded-lg">
+                            <i class="bi bi-house-door text-xl mr-4 text-green-500"></i>
+                            <span class="font-medium">Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'prediction_create' %}" class="sidebar-link flex items-center p-4 text-gray-700 rounded-lg">
+                            <i class="bi bi-leaf text-xl mr-4 text-green-500"></i>
+                            <span class="font-medium">Weed Control</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'user_list' %}" class="sidebar-link flex items-center p-4 text-gray-700 rounded-lg">
+                            <i class="bi bi-person-circle text-xl mr-4 text-green-500"></i>
+                            <span class="font-medium">Users</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'generate_report' %}" class="sidebar-link flex items-center p-4 text-gray-700 rounded-lg">
+                            <i class="bi bi-bar-chart-line text-xl mr-4 text-green-500"></i>
+                            <span class="font-medium">Reports</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="mt-auto pt-6 border-t border-gray-200">
+                <a href="{% url 'logout' %}" class="flex items-center p-4 text-gray-700 hover:bg-red-50 rounded-lg transition duration-300">
+                    <i class="bi bi-box-arrow-right text-xl mr-4 text-red-500"></i>
+                    <span class="font-medium">Logout</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="flex-1 overflow-y-auto">
+            <header class="glass-effect sticky top-0 z-10 p-6 mb-6">
+                <div class="flex justify-between items-center">
+                    <h1 class="text-3xl font-bold text-gray-800">Dashboard Overview</h1>
+                    <div class="flex items-center space-x-4">
+                        <div class="text-right">
+                            <p class="text-sm text-gray-500">Welcome back,</p>
+                            <p class="font-semibold text-gray-800">Admin</p>
+                        </div>
+                        <img src="{% static 'assets/images/user.jpg' %}" alt="Admin Avatar" class="w-10 h-10 rounded-full ring-2 ring-green-500">
+                    </div>
+                </div>
+            </header>
+
+            <div class="p-6 space-y-6">
+                <!-- Stats Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="stats-card p-6 rounded-xl">
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <h3 class="text-lg font-medium text-gray-500">Total Farmers</h3>
+                                <p class="text-3xl font-bold text-green-600">{{ total_farmers }}</p>
+                                
+                            </div>
+                            <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
+                                <i class="bi bi-person-fill text-2xl text-green-500"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="stats-card p-6 rounded-xl">
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <h3 class="text-lg font-medium text-gray-500">Total Crop Detected</h3>
+                                <p class="text-3xl font-bold text-purple-600">{{ crop_detected_count }}</p>
+                                
+                            </div>
+                            <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center">
+                                <i class="bi bi-seedling text-2xl text-purple-500"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="stats-card p-6 rounded-xl">
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <h3 class="text-lg font-medium text-gray-500">Total Weed Detected</h3>
+                                <p class="text-3xl font-bold text-red-600">{{ weed_detected_count }}</p>
+                                
+                            </div>
+                            <div class="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center">
+                                <i class="bi bi-bug text-2xl text-red-500"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Charts -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <div class="chart-container glass-effect p-6 rounded-xl">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-6">Weed Detection Trends</h3>
+                        <canvas id="weedChart"></canvas>
+                    </div>
+
+                    <div class="chart-container glass-effect p-6 rounded-xl">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-6">User Growth</h3>
+                        <canvas id="userGrowthChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Weed Detection Chart with enhanced styling
+        var weedChart = new Chart(document.getElementById('weedChart'), {
+            type: 'line',
+            data: {
+                labels: [{% for trend in weed_trends %} '{{ trend.month }}'{% if not forloop.last %}, {% endif %}{% endfor %}],
+                datasets: [{
+                    label: 'Weed Detection',
+                    data: [{% for trend in weed_trends %} {{ trend.count }}{% if not forloop.last %}, {% endif %}{% endfor %}],
+                    borderColor: '#22c55e',
+                    backgroundColor: 'rgba(34, 197, 94, 0.1)',
+                    tension: 0.4,
+                    fill: true
+                }, {
+                    label: 'Crop Detection',
+                    data: [{% for trend in crop_trends %} {{ trend.count }}{% if not forloop.last %}, {% endif %}{% endfor %}],
+                    borderColor: '#8b5cf6',
+                    backgroundColor: 'rgba(139, 92, 246, 0.1)',
+                    tension: 0.4,
+                    fill: true
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top'
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        grid: {
+                            color: 'rgba(0,0,0,0.05)'
+                        }
+                    },
+                    x: {
+                        grid: {
+                            display: false
+                        }
+                    }
+                }
+            }
+        });
+
+        // User Growth Chart with enhanced styling
+        var userGrowthChart = new Chart(document.getElementById('userGrowthChart'), {
+            type: 'bar',
+            data: {
+                labels: [{% for growth in user_growth %} '{{ growth.month }}'{% if not forloop.last %}, {% endif %}{% endfor %}],
+                datasets: [{
+                    label: 'New Users',
+                    data: [{% for growth in user_growth %} {{ growth.count }}{% if not forloop.last %}, {% endif %}{% endfor %}],
+                    backgroundColor: 'rgba(59, 130, 246, 0.7)',
+                    borderColor: 'rgb(59, 130, 246)',
+                    borderWidth: 1,
+                    borderRadius: 5
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top'
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        grid: {
+                            color: 'rgba(0,0,0,0.05)'
+                        }
+                    },
+                    x: {
+                        grid: {
+                            display: false
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

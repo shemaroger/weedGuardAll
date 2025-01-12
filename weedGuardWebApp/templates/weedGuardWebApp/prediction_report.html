@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Report</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+
+    <div class="container mx-auto p-6">
+        <h1 class="text-3xl font-semibold mb-4">Prediction Report</h1>
+
+        <!-- Filter Section -->
+        <form method="get" class="mb-4">
+            <div class="flex space-x-4">
+                <select name="result" class="p-2 border rounded">
+                    <option value="">Filter by Result</option>
+                    <option value="Crop detected" {% if request.GET.result == 'Crop detected' %}selected{% endif %}>Crop detected</option>
+                    <option value="Weed detected" {% if request.GET.result == 'Weed detected' %}selected{% endif %}>Weed detected</option>
+                </select>
+
+                <select name="user" class="p-2 border rounded">
+                    <option value="">Filter by User</option>
+                    {% for user in users %}
+                    <option value="{{ user.id }}" {% if request.GET.user == user.id|stringformat:"s" %}selected{% endif %}>{{ user.username }}</option>
+                    {% endfor %}
+                </select>
+
+                <button type="submit" class="p-2 bg-blue-500 text-white rounded">Apply Filters</button>
+            </div>
+        </form>
+
+        <h2 class="text-xl font-medium mb-4">Predictions from {{ start_date|date:"Y-m-d" }} to {{ today|date:"Y-m-d" }}</h2>
+
+        <!-- Predictions Table -->
+        <table class="table-auto w-full border-collapse border">
+            <thead>
+                <tr class="bg-gray-200">
+                    <th class="px-4 py-2 border">Result</th>
+                    <th class="px-4 py-2 border">Timestamp</th>
+                    <th class="px-4 py-2 border">Location</th>
+                    <th class="px-4 py-2 border">Site Name</th>
+                    <th class="px-4 py-2 border">User</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for prediction in predictions %}
+                <tr class="bg-white">
+                    <td class="px-4 py-2 border">{{ prediction.result }}</td>
+                    <td class="px-4 py-2 border">{{ prediction.timestamp|date:"Y-m-d H:i" }}</td>
+                    <td class="px-4 py-2 border">{{ prediction.location }}</td>
+                    <td class="px-4 py-2 border">{{ prediction.site_name }}</td>
+                    <td class="px-4 py-2 border">{{ prediction.user.username }}</td>
+                </tr>
+                {% empty %}
+                <tr class="bg-white">
+                    <td colspan="5" class="px-4 py-2 border text-center">No predictions found</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <h3 class="text-xl font-medium mt-6 mb-4">Summary by Site</h3>
+
+        <!-- Summary by Site -->
+        <table class="table-auto w-full border-collapse border">
+            <thead>
+                <tr class="bg-gray-200">
+                    <th class="px-4 py-2 border">Site Name</th>
+                    <th class="px-4 py-2 border">Total Predictions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for site in predictions_by_site %}
+                <tr class="bg-white">
+                    <td class="px-4 py-2 border">{{ site.site_name }}</td>
+                    <td class="px-4 py-2 border">{{ site.total }}</td>
+                </tr>
+                {% empty %}
+                <tr class="bg-white">
+                    <td colspan="2" class="px-4 py-2 border text-center">No predictions by site</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>

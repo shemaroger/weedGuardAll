@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error - WeedGuard</title>
+    <!-- Ensure this path points to your CSS -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #343a40;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .error-container {
+            text-align: center;
+            padding: 20px;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .error-container h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            color: #dc3545;
+        }
+        .error-container p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+        .error-container a {
+            text-decoration: none;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #ffffff;
+            border-radius: 4px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+        .error-container a:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="error-container">
+        <h1>Something Went Wrong!</h1>
+        <p>{{ error }}</p>
+        <a href="{% url 'predict' %}">Try Again</a>
+    </div>
+</body>
+</html>
