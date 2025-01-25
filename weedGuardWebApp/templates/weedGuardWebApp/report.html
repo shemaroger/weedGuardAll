@@ -1,6 +1,6 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -127,7 +127,6 @@
         }
     </style>
 </head>
-
 <body>
     <div class="container py-5">
         <!-- Date Range Form -->
@@ -271,11 +270,20 @@
                         </table>
                     </div>
                 </section>
-                <div class="action-buttons text-center">
-                    <button id="download-btn" class="btn btn-primary">
-                        <i class="bi bi-file-earmark-arrow-down me-2"></i>Download PDF
-                    </button>
-                </div>
+                <div class="action-buttons flex flex-col items-center space-y-4">
+    <!-- Download Button -->
+    <button id="download-btn" class="btn btn-primary transform transition-transform duration-300 hover:scale-105">
+        <i class="bi bi-file-earmark-arrow-down me-2"></i>Download PDF
+    </button>
+
+    <!-- Back to Dashboard Link -->
+    <button onclick="window.location.href='{% url 'admin_dashboard' %}'" class="sidebar-link flex items-center 
+    p-4 bg-blue-500 text-white btn-primary rounded-lg shadow-md hover:shadow-lg 
+    transition-shadow duration-300 hover:bg-blue-600">
+    <i class="bi bi-arrow-left-circle text-xl mr-4"></i>
+    <span class="font-medium">Back to Dashboard</span>
+</button>
+</div>
             </div>
         </div>
     </div>
@@ -285,28 +293,85 @@
             const { jsPDF } = window.jspdf;
             const doc = new jsPDF();
 
-            // Add header
-            doc.setFontSize(18);
-            doc.setTextColor(40);
-            doc.setFont("helvetica", "bold");
-            doc.text("WeedGuard Report", 10, 20);
+            // Add logo
+            const logoUrl = "{% static 'assets/images/pngtree-sweet-potato-vegetarian-food-icon-and-vector-logo-png-image_1570272.jpg' %}";
+            const logoWidth = 30; // Adjust the width of the logo
+            const logoHeight = 30; // Adjust the height of the logo
 
-            // Add content
-            doc.setFontSize(12);
-            doc.setFont("helvetica", "normal");
-            doc.text("Farmers Overview", 10, 40);
-            doc.text("Total Farmers: {{ total_farmers }}", 10, 50);
+            // Load the logo image
+            const img = new Image();
+            img.src = logoUrl;
+            img.onload = function () {
+                // Add the logo to the PDF
+                doc.addImage(img, 'JPEG', 10, 10, logoWidth, logoHeight);
 
-            // Predictions section
-            doc.text("Prediction Insights", 10, 70);
-            doc.text(`Total Predictions: {{ total_predictions }}`, 10, 80);
-            doc.text(`Weed Predictions: {{ weed_predictions }}`, 10, 90);
-            doc.text(`Crop Predictions: {{ crop_predictions }}`, 10, 100);
+                // Set up basic styling
+                doc.setFont("helvetica");
+                doc.setFontSize(12);
 
-            // Save the file
-            doc.save("WeedGuard_Report.pdf");
+                // Add header text
+                doc.setFontSize(18);
+                doc.setTextColor(40);
+                doc.setFont("helvetica", "bold");
+                doc.text("WeedGuard Report", 50, 20); // Adjust the position to avoid overlapping with the logo
+
+                // Add date range
+                doc.setFontSize(12);
+                doc.setFont("helvetica", "normal");
+                doc.text(`Date Range: ${"{{ report_start_date }}"} to ${"{{ report_end_date }}"}`, 10, 40);
+
+                // Add Farmers Overview
+                doc.setFont("helvetica", "bold");
+                doc.text("Farmers Overview", 10, 60);
+                doc.setFont("helvetica", "normal");
+                doc.text(`Total Farmers: ${"{{ total_farmers }}"}`, 10, 70);
+
+                // Add New Farmers by Month table
+                doc.setFont("helvetica", "bold");
+                doc.text("New Farmers by Month", 10, 90);
+                doc.setFont("helvetica", "normal");
+
+                let yPos = 100;
+                doc.text("Month", 10, yPos);
+                doc.text("New Farmers", 60, yPos);
+                yPos += 10;
+
+                {% for month_data in new_farmers_by_month %}
+                    doc.text(`${"{{ month_data.month }}"}`, 10, yPos);
+                    doc.text(`${"{{ month_data.new_farmers }}"}`, 60, yPos);
+                    yPos += 10;
+                {% endfor %}
+
+                // Add Predictions Overview
+                doc.setFont("helvetica", "bold");
+                doc.text("Prediction Insights", 10, yPos + 10);
+                doc.setFont("helvetica", "normal");
+                doc.text(`Total Predictions: ${"{{ total_predictions }}"}`, 10, yPos + 20);
+                doc.text(`Weed Predictions: ${"{{ weed_predictions }}"}`, 10, yPos + 30);
+                doc.text(`Crop Predictions: ${"{{ crop_predictions }}"}`, 10, yPos + 40);
+
+                // Add Predictions Breakdown table
+                doc.setFont("helvetica", "bold");
+                doc.text("Predictions Breakdown", 10, yPos + 60);
+                doc.setFont("helvetica", "normal");
+
+                yPos += 70;
+                doc.text("Month", 10, yPos);
+                doc.text("Result", 60, yPos);
+                doc.text("Count", 110, yPos);
+                yPos += 10;
+
+                {% for prediction in predictions_by_month %}
+                    doc.text(`${"{{ prediction.month }}"}`, 10, yPos);
+                    doc.text(`${"{{ prediction.result }}"}`, 60, yPos);
+                    doc.text(`${"{{ prediction.count }}"}`, 110, yPos);
+                    yPos += 10;
+                {% endfor %}
+
+                // Save the file
+                doc.save("WeedGuard_Report.pdf");
+            };
         });
     </script>
 </body>
-
 </html>

@@ -6,8 +6,11 @@ from weedGuardApp.models import *
 from django.contrib.auth import authenticate, login
 from django.conf import settings
 from weedGuardApp.models import Prediction
+from django.core.paginator import Paginator
 from weedGuardApp.ml_model import predict_image
 from django.shortcuts import render, redirect
+from django.views.generic import UpdateView
+from django.urls import reverse_lazy
 from django.contrib.auth import login
 from django.contrib import messages
 from django.db.models import Count, F
@@ -24,7 +27,10 @@ from django.core.files.storage import default_storage
 from django.conf import settings
 import os
 from django.contrib.auth import get_user_model
-
+from datetime import datetime, timedelta
+from django.utils.timezone import now
+from django.db.models import Count
+from django.db.models.functions import TruncMonth
 
 def signup(request):
     if request.method == 'POST':
@@ -79,12 +85,15 @@ def login_view(request):
 def home(request):
     return render(request, 'weedGuardWebApp/home.html')
 
-def logout_view(request):
+def logoutt_view(request):
     logout(request)
-    return redirect('login')
+    return redirect('loginn')
 def prediction_list(request):
-    """View to display all predictions"""
-    predictions = Prediction.objects.all().order_by('-timestamp')
+    """View to display all predictions with pagination"""
+    predictions_list = Prediction.objects.all().order_by('-timestamp')
+    paginator = Paginator(predictions_list, 7)  # Show 10 predictions per page
+    page_number = request.GET.get('page')  # Get the current page number from the request
+    predictions = paginator.get_page(page_number)  # Get the page object
     return render(request, 'weedGuardWebApp/prediction_list.html', {'predictions': predictions})
 
 def prediction_detail(request, pk):
@@ -92,6 +101,23 @@ def prediction_detail(request, pk):
     prediction = get_object_or_404(Prediction, pk=pk)
     return render(request, 'weedGuardWebApp/prediction_detail.html', {'prediction': prediction})
 
+def prediction_delete(request, id):
+    prediction = get_object_or_404(Prediction, id=id)
+    if request.method == 'POST':
+        prediction.delete()
+        return redirect('prediction_list')
+    return render(request, 'weedGuardWebApp/prediction_confirm_delete.html', {'prediction': prediction})
+def prediction_edit(request, id):
+    prediction = get_object_or_404(Prediction, id=id)
+    if request.method == 'POST':
+        # Update the prediction with new data
+        prediction.image = request.FILES.get('image', prediction.image)
+        prediction.result = request.POST.get('result', prediction.result)
+        prediction.location = request.POST.get('location', prediction.location)
+        prediction.site_name = request.POST.get('site_name', prediction.site_name)
+        prediction.save()
+        return redirect('prediction_list')
+    return render(request, 'weedGuardWebApp/prediction_edit.html', {'prediction': prediction})
 
 @login_required
 def prediction_create(request):
@@ -131,10 +157,7 @@ def prediction_create(request):
     return render(request, 'weedGuardWebApp/predict.html', {'result': result})
 
 
-from datetime import datetime, timedelta
-from django.utils.timezone import now
-from django.db.models import Count
-from django.db.models.functions import TruncMonth
+
 
 def admin_dashboard(request):
     # Calculate the date 3 months ago
@@ -226,7 +249,10 @@ def generate_report(request):
 
 # View to list all users
 def user_list(request):
-    users = get_user_model().objects.all()
+    users_list = get_user_model().objects.all()
+    paginator = Paginator(users_list, 7)  # Show 10 users per page
+    page_number = request.GET.get('page')
+    users = paginator.get_page(page_number)
     return render(request, 'weedGuardWebApp/user_list.html', {'users': users})
 
 # View to create a new user
@@ -288,3 +314,35 @@ def delete_user(request, user_id):
     messages.success(request, 'User deleted successfully!')
     return redirect('user_list')
 
+
+def create_contact_message(request):
+    if request.method == 'POST':
+        # Get data from the POST request
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        phone = request.POST.get('phone')  # New field
+        message = request.POST.get('message')
+
+        # Validate the data (basic validation)
+        if name and email and message:
+            # Create and save the ContactMessage instance
+            ContactMessage.objects.create(name=name, email=email, phone=phone, message=message)
+            # Add a success message
+            messages.success(request, 'Your message has been sent successfully!')
+            # Redirect to a success page or the same page
+            return redirect('contact_success')  # Replace 'contact_success' with your desired URL name
+        else:
+            # Add an error message if validation fails
+            messages.error(request, 'Please fill out all required fields.')
+
+    # Render the contact form template
+    return render(request, 'weedGuardWebApp/home.html')
+def contact_success(request):
+    return render(request, 'weedGuardWebApp/contact_success.html')
+
+def contactmessage_list(request):
+    messages_list = ContactMessage.objects.all().order_by('-created_at')
+    paginator = Paginator(messages_list, 2)  # Show 10 messages per page
+    page_number = request.GET.get('page')
+    messages = paginator.get_page(page_number)
+    return render(request, 'weedGuardWebApp/contactmessage_list.html', {'messages': messages})

@@ -1,0 +1,120 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Prediction - Weed Guard</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+        }
+        .sidebar-link {
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
+        }
+        .sidebar-link:hover {
+            border-left: 3px solid #22c55e;
+            background: linear-gradient(90deg, #f0fdf4 0%, transparent 100%);
+        }
+        .active-link {
+            border-left: 3px solid #22c55e;
+            background: linear-gradient(90deg, #f0fdf4 0%, transparent 100%);
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-green-50 via-gray-50 to-blue-50 min-h-screen">
+    <div class="flex h-screen overflow-hidden">
+        <!-- Sidebar -->
+        <div class="w-80 glass-effect shadow-lg p-6 flex flex-col">
+            <div class="flex items-center space-x-4 mb-10">
+                <img src="{% static 'assets/images/pngtree-sweet-potato-vegetarian-food-icon-and-vector-logo-png-image_1570272.jpg' %}" alt="WeedGuard Logo" class="w-12 h-12 rounded-xl shadow-md">
+                <h2 class="text-2xl font-bold bg-gradient-to-r from-green-600 to-green-400 bg-clip-text text-transparent">Weed Guard</h2>
+            </div>
+            
+            <nav class="flex-1">
+                <ul class="space-y-3">
+                    <li>
+                        <a href="{% url 'admin_dashboard' %}" class="sidebar-link flex items-center p-4 text-gray-700 rounded-lg">
+                            <i class="bi bi-house-door text-xl mr-4 text-green-500"></i>
+                            <span class="font-medium">Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'prediction_list' %}" class="sidebar-link active-link flex items-center p-4 text-gray-700 rounded-lg">
+                            <i class="bi bi-leaf text-xl mr-4 text-green-500"></i>
+                            <span class="font-medium">Weed Control</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'user_list' %}" class="sidebar-link flex items-center p-4 text-gray-700 rounded-lg">
+                            <i class="bi bi-person-circle text-xl mr-4 text-green-500"></i>
+                            <span class="font-medium">Users</span>
+                        </a>
+                    </li>
+                   <a href="{% url 'contactmessage_list' %}" class="sidebar-link flex items-center p-4 text-gray-700 rounded-lg">
+        <i class="bi bi-envelope text-xl mr-4 text-green-500"></i>
+        <span class="font-medium">Contacted</span>
+    </a>
+</li>
+                    <li>
+                        <a href="{% url 'generate_report' %}" class="sidebar-link flex items-center p-4 text-gray-700 rounded-lg">
+                            <i class="bi bi-bar-chart-line text-xl mr-4 text-green-500"></i>
+                            <span class="font-medium">Reports</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="mt-auto pt-6 border-t border-gray-200">
+                <a href="{% url 'logout' %}" class="flex items-center p-4 text-gray-700 hover:bg-red-50 rounded-lg transition duration-300">
+                    <i class="bi bi-box-arrow-right text-xl mr-4 text-red-500"></i>
+                    <span class="font-medium">Logout</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="flex-1 overflow-y-auto">
+            <!-- Header -->
+            <header class="glass-effect sticky top-0 z-10 p-6 mb-6">
+                <div class="flex justify-between items-center">
+                    <h1 class="text-3xl font-bold text-gray-800">Delete Prediction</h1>
+                    <div class="flex items-center space-x-4">
+                        <div class="text-right">
+                            <p class="text-sm text-gray-500">Welcome back,</p>
+                            <p class="font-semibold text-gray-800">Admin</p>
+                        </div>
+                        <img src="{% static 'assets/images/user.jpg' %}" alt="Admin Avatar" class="w-10 h-10 rounded-full ring-2 ring-green-500">
+                    </div>
+                </div>
+            </header>
+
+            <!-- Delete Confirmation Section -->
+            <div class="p-6">
+                <div class="bg-white p-8 rounded-lg shadow-lg max-w-2xl mx-auto">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4">Delete Prediction</h2>
+                    <div class="confirmation bg-gray-50 p-6 rounded-lg border border-gray-200">
+                        <p class="text-gray-700 mb-6">Are you sure you want to delete the prediction <strong class="text-green-600">"{{ prediction.result }}"</strong>?</p>
+                        <form method="post">
+                            {% csrf_token %}
+                            <div class="flex items-center space-x-4">
+                                <button type="submit" class="bg-red-500 text-white px-6 py-2 rounded-lg hover:bg-red-600 transition duration-300">
+                                    Yes, delete
+                                </button>
+                                <a href="{% url 'prediction_list' %}" class="text-green-500 hover:text-green-600 hover:underline">
+                                    Cancel
+                                </a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -30,41 +30,54 @@
 <body class="bg-gradient-to-br from-gray-100 to-gray-200">
     <div class="flex h-screen overflow-hidden">
         <!-- Modern Sidebar -->
-        <div class="w-72 bg-white shadow-xl border-r border-gray-200 p-6">
-            <div class="flex items-center mb-10">
-                <img src="{% static 'assets/images/pngtree-sweet-potato-vegetarian-food-icon-and-vector-logo-png-image_1570272.jpg' %}" alt="WeedGuard Logo" class="w-12 h-12 mr-4 rounded-full">
-                <h2 class="text-2xl font-bold text-green-600">Weed Guard</h2>
+        <div class="w-80 glass-effect shadow-lg p-6 flex flex-col">
+            <div class="flex items-center space-x-4 mb-10">
+                <img src="{% static 'assets/images/pngtree-sweet-potato-vegetarian-food-icon-and-vector-logo-png-image_1570272.jpg' %}" alt="WeedGuard Logo" class="w-12 h-12 rounded-xl shadow-md">
+                <h2 class="text-2xl font-bold bg-gradient-to-r from-green-600 to-green-400 bg-clip-text text-transparent">Weed Guard</h2>
             </div>
-            <nav>
-                <ul class="space-y-2">
+            
+            <nav class="flex-1">
+                <ul class="space-y-3">
                     <li>
-                        <a href="#" class="flex items-center p-3 text-gray-700 hover:bg-green-50 rounded-lg transition duration-300 ease-in-out">
-                            <i class="bi bi-house-door mr-3 text-green-500"></i>
+                        <a href="{% url 'admin_dashboard' %}" class="sidebar-link flex items-center p-4 text-gray-700 rounded-lg">
+                            <i class="bi bi-house-door text-xl mr-4 text-green-500"></i>
                             <span class="font-medium">Dashboard</span>
                         </a>
                     </li>
                     <li>
-                        <a href="{% url 'prediction_create' %}" class="flex items-center p-3 text-gray-700 hover:bg-green-50 rounded-lg transition duration-300 ease-in-out">
-                            <i class="bi bi-leaf mr-3 text-green-500"></i>
+                        <a href="{% url 'prediction_list' %}" class="sidebar-link flex items-center p-4 text-gray-700 rounded-lg">
+                            <i class="bi bi-leaf text-xl mr-4 text-green-500"></i>
                             <span class="font-medium">Weed Control</span>
                         </a>
                     </li>
                     <li>
-                        <a href="{% url 'user_list' %}" class="flex items-center active-link p-3 text-gray-700 hover:bg-green-50 rounded-lg transition duration-300 ease-in-out">
-                            <i class="bi bi-person-circle mr-3 text-green-500"></i>
+                        <a href="{% url 'user_list' %}" class="sidebar-link flex items-center active-link p-4 text-gray-700 rounded-lg">
+                            <i class="bi bi-person-circle text-xl mr-4 text-green-500"></i>
                             <span class="font-medium">Users</span>
                         </a>
                     </li>
                     <li>
-                        <a href="{% url 'generate_report' %}" class="flex items-center p-3 text-gray-700 hover:bg-green-50 rounded-lg transition duration-300 ease-in-out">
-                            <i class="bi bi-bar-chart-line mr-3 text-green-500"></i>
+                        <a href="{% url 'contactmessage_list' %}" class="sidebar-link flex items-center p-4 text-gray-700 rounded-lg">
+                            <i class="bi bi-envelope text-xl mr-4 text-green-500"></i>
+                            <span class="font-medium">Contacted</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'generate_report' %}" class="sidebar-link flex items-center p-4 text-gray-700 rounded-lg">
+                            <i class="bi bi-bar-chart-line text-xl mr-4 text-green-500"></i>
                             <span class="font-medium">Reports</span>
                         </a>
                     </li>
                 </ul>
             </nav>
-        </div>
 
+            <div class="mt-auto pt-6 border-t border-gray-200">
+                <a href="{% url 'logout' %}" class="flex items-center p-4 text-gray-700 hover:bg-red-50 rounded-lg transition duration-300">
+                    <i class="bi bi-box-arrow-right text-xl mr-4 text-red-500"></i>
+                    <span class="font-medium">Logout</span>
+                </a>
+            </div>
+        </div>
         <!-- Main Content -->
         <div class="flex-1 overflow-y-auto p-8">
             <!-- Header -->

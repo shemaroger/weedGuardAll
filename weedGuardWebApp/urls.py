@@ -8,7 +8,7 @@ urlpatterns = [
     path('signup/', views.signup, name='signup'),
     path('loginn/', views.login_view, name='loginn'),
     path('predict', views.prediction_create, name='prediction_create'),
-    path('logout/', views.logout_view, name='logout'),
+    path('logoutt/', views.logoutt_view, name='logout'),
     path('prediction', views.prediction_list, name='prediction_list'),  # This should match the root URL
     path('prediction/<int:pk>/', views.prediction_detail, name='prediction_detail'),
     path('admin-dashboard/', views.admin_dashboard, name='admin_dashboard'),
@@ -17,6 +17,11 @@ urlpatterns = [
     path('users/create/', views.create_user, name='create_user'),
     path('users/update/<int:user_id>/', views.update_user, name='update_user'),
     path('users/delete/<int:user_id>/', views.delete_user, name='delete_user'),
+    path('predictions/<int:id>/edit/', views.prediction_edit, name='prediction_edit'),
+    path('predictions/<int:id>/delete/', views.prediction_delete, name='prediction_delete'),
+    path('contact/', views.create_contact_message, name='create_contact_message'),
+    path('contact/success/', views.contact_success, name='contact_success'),
+    path('contactmessages/', views.contactmessage_list, name='contactmessage_list'),
      
 ]
 

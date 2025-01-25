@@ -15115,3 +15115,853 @@ django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 44: 's
 2025-01-12 11:24:14,868 [INFO] - Broken pipe from ('192.168.8.106', 53390)
 2025-01-12 11:37:02,348 [INFO] "GET /api/analytics/ HTTP/1.1" 200 518
 2025-01-12 11:37:30,407 [INFO] - Broken pipe from ('192.168.8.106', 53426)
+2025-01-12 13:58:35,377 [INFO] "GET / HTTP/1.1" 200 13174
+2025-01-12 13:58:41,630 [INFO] "GET /loginn/ HTTP/1.1" 200 6713
+2025-01-12 13:58:44,843 [INFO] "POST /loginn/ HTTP/1.1" 302 0
+2025-01-12 13:58:44,852 [INFO] "GET /loginn/ HTTP/1.1" 200 6713
+2025-01-12 13:58:47,805 [INFO] "POST /loginn/ HTTP/1.1" 302 0
+2025-01-12 13:58:47,817 [INFO] "GET /loginn/ HTTP/1.1" 200 6713
+2025-01-12 13:58:52,134 [INFO] "POST /loginn/ HTTP/1.1" 302 0
+2025-01-12 13:58:52,142 [INFO] "GET /loginn/ HTTP/1.1" 200 6713
+2025-01-12 14:00:48,468 [INFO] "POST /loginn/ HTTP/1.1" 302 0
+2025-01-12 14:00:48,480 [INFO] "GET /loginn/ HTTP/1.1" 200 6713
+2025-01-12 14:01:01,777 [WARNING] Not Found: /projects/1/
+2025-01-12 14:01:01,781 [WARNING] "GET /projects/1/ HTTP/1.1" 404 6087
+2025-01-12 14:01:15,225 [INFO] "GET /generate-report/ HTTP/1.1" 200 12326
+2025-01-12 14:01:20,884 [INFO] "GET /admin-dashboard/ HTTP/1.1" 200 11098
+2025-01-12 14:01:23,429 [INFO] "GET /users/ HTTP/1.1" 200 17880
+2025-01-12 14:01:47,348 [INFO] "GET /logout/ HTTP/1.1" 302 0
+2025-01-12 14:01:47,981 [WARNING] Method Not Allowed: /api/login/
+2025-01-12 14:01:47,984 [WARNING] "GET /api/login/ HTTP/1.1" 405 10449
+2025-01-12 14:01:48,587 [INFO] "GET /static/rest_framework/css/default.css HTTP/1.1" 200 1152
+2025-01-12 14:01:48,587 [INFO] "GET /static/rest_framework/css/bootstrap-tweaks.css HTTP/1.1" 200 3426
+2025-01-12 14:01:48,630 [INFO] "GET /static/rest_framework/css/prettify.css HTTP/1.1" 200 817
+2025-01-12 14:01:48,639 [INFO] "GET /static/rest_framework/css/bootstrap.min.css HTTP/1.1" 200 121457
+2025-01-12 14:01:48,682 [INFO] "GET /static/rest_framework/js/csrf.js HTTP/1.1" 200 1793
+2025-01-12 14:01:48,705 [INFO] "GET /static/rest_framework/js/ajax-form.js HTTP/1.1" 200 3796
+2025-01-12 14:01:48,707 [INFO] "GET /static/rest_framework/js/default.js HTTP/1.1" 200 1268
+2025-01-12 14:01:48,714 [INFO] "GET /static/rest_framework/js/load-ajax-form.js HTTP/1.1" 200 59
+2025-01-12 14:01:48,718 [INFO] "GET /static/rest_framework/js/bootstrap.min.js HTTP/1.1" 200 39680
+2025-01-12 14:01:48,735 [INFO] "GET /static/rest_framework/img/grid.png HTTP/1.1" 200 1458
+2025-01-12 14:01:48,768 [INFO] "GET /static/rest_framework/js/jquery-3.7.1.min.js HTTP/1.1" 200 87533
+2025-01-12 14:01:48,783 [INFO] "GET /static/rest_framework/js/prettify-min.js HTTP/1.1" 200 13632
+2025-01-12 14:01:59,731 [INFO] "GET / HTTP/1.1" 200 13174
+2025-01-12 14:02:10,285 [INFO] "GET /loginn/ HTTP/1.1" 200 6713
+2025-01-12 14:02:18,772 [INFO] "POST /loginn/ HTTP/1.1" 302 0
+2025-01-12 14:02:18,780 [INFO] "GET /loginn/ HTTP/1.1" 200 6713
+2025-01-12 14:02:51,128 [INFO] "POST /loginn/ HTTP/1.1" 302 0
+2025-01-12 14:02:51,134 [INFO] "GET /loginn/ HTTP/1.1" 200 6713
+2025-01-12 14:02:59,432 [WARNING] Method Not Allowed: /api/login/
+2025-01-12 14:02:59,436 [WARNING] "GET /api/login/ HTTP/1.1" 405 10449
+2025-01-12 14:03:11,201 [INFO] "GET /predict HTTP/1.1" 302 0
+2025-01-12 14:03:11,228 [WARNING] Not Found: /accounts/login/
+2025-01-12 14:03:11,245 [WARNING] "GET /accounts/login/?next=/predict HTTP/1.1" 404 6113
+2025-01-12 14:03:18,048 [INFO] "GET /predict HTTP/1.1" 302 0
+2025-01-12 14:03:18,079 [WARNING] Not Found: /accounts/login/
+2025-01-12 14:03:18,086 [WARNING] "GET /accounts/login/?next=/predict HTTP/1.1" 404 6113
+2025-01-12 14:03:37,943 [INFO] "GET /generate-report/ HTTP/1.1" 200 12326
+2025-01-12 14:03:53,634 [INFO] "GET /users/create/ HTTP/1.1" 200 10528
+2025-01-12 14:04:07,420 [INFO] "GET / HTTP/1.1" 200 13174
+2025-01-12 14:04:13,187 [INFO] "GET /loginn/ HTTP/1.1" 200 6713
+2025-01-12 14:04:34,778 [INFO] "POST /loginn/ HTTP/1.1" 302 0
+2025-01-12 14:04:34,783 [INFO] "GET /loginn/ HTTP/1.1" 200 6713
+2025-01-12 14:13:50,779 [INFO] "POST /loginn/ HTTP/1.1" 302 0
+2025-01-12 14:13:50,821 [INFO] "GET /admin-dashboard/ HTTP/1.1" 200 11098
+2025-01-12 15:00:01,816 [INFO] "POST /api/login/ HTTP/1.1" 200 562
+2025-01-12 15:00:04,103 [INFO] "GET /api/predictions-list/ HTTP/1.1" 200 686
+2025-01-12 15:00:16,618 [INFO] "GET /api/analytics/ HTTP/1.1" 200 518
+2025-01-12 15:01:08,787 [WARNING] Bad Request: /api/login/
+2025-01-12 15:01:08,787 [WARNING] "POST /api/login/ HTTP/1.1" 400 45
+2025-01-12 15:02:53,862 [INFO] "POST /api/login/ HTTP/1.1" 200 562
+2025-01-12 15:03:07,860 [WARNING] Bad Request: /api/login/
+2025-01-12 15:03:07,861 [WARNING] "POST /api/login/ HTTP/1.1" 400 45
+2025-01-12 15:04:40,735 [WARNING] Bad Request: /api/login/
+2025-01-12 15:04:40,736 [WARNING] "POST /api/login/ HTTP/1.1" 400 45
+2025-01-12 15:04:50,521 [INFO] "POST /api/login/ HTTP/1.1" 200 562
+2025-01-12 15:04:56,325 [INFO] "GET /api/predictions-list/ HTTP/1.1" 200 686
+2025-01-12 15:05:02,139 [INFO] "GET /api/analytics/ HTTP/1.1" 200 518
+2025-01-12 15:05:47,741 [INFO] "POST /api/login/ HTTP/1.1" 200 562
+2025-01-12 15:05:52,641 [INFO] "GET /api/analytics/ HTTP/1.1" 200 518
+2025-01-12 15:06:05,960 [INFO] "GET /api/predictions-list/ HTTP/1.1" 200 686
+2025-01-12 15:06:24,481 [INFO] - Broken pipe from ('192.168.8.106', 53822)
+2025-01-23 10:49:35,739 [WARNING] Bad Request: /api/login/
+2025-01-23 10:49:35,904 [WARNING] "POST /api/login/ HTTP/1.1" 400 45
+2025-01-23 10:49:51,959 [INFO] "POST /api/login/ HTTP/1.1" 200 562
+2025-01-23 10:49:54,969 [INFO] "GET /api/predictions-list/ HTTP/1.1" 200 686
+2025-01-23 10:50:04,776 [INFO] Create user request received with data: {'fullname': 'Seton', 'email': 'kamongisethonde@gmail.com', 'password': '123', 'role': 'farmer'}
+2025-01-23 10:50:04,975 [INFO] User created successfully: {'fullname': 'Seton', 'email': 'kamongisethonde@gmail.com', 'password': 'pbkdf2_sha256$390000$ENzZptxLOQ9fgs5nyN3tFK$oOSWmTLjlx/y9Kg1Q4tifZ5cRLH4wWQECWaP49mvUB4=', 'role': 'farmer'}
+2025-01-23 10:50:04,975 [INFO] "POST /api/user/ HTTP/1.1" 201 40
+2025-01-23 10:50:09,205 [WARNING] Bad Request: /api/login/
+2025-01-23 10:50:09,205 [WARNING] "POST /api/login/ HTTP/1.1" 400 45
+2025-01-23 10:50:13,141 [WARNING] Bad Request: /api/login/
+2025-01-23 10:50:13,142 [WARNING] "POST /api/login/ HTTP/1.1" 400 45
+2025-01-23 10:50:26,713 [WARNING] Bad Request: /api/login/
+2025-01-23 10:50:26,714 [WARNING] "POST /api/login/ HTTP/1.1" 400 45
+2025-01-23 10:50:49,538 [INFO] Create user request received with data: {'fullname': 'Seton', 'email': 'kamongisethonde1@gmail.com', 'password': '123', 'role': 'farmer'}
+2025-01-23 10:50:49,740 [INFO] User created successfully: {'fullname': 'Seton', 'email': 'kamongisethonde1@gmail.com', 'password': 'pbkdf2_sha256$390000$wCmxRnajxS6OEki1NpknmI$Z9S0SLcbrM1+RdbYcdd3nkTp3VhO51hOHgcKITaGqLE=', 'role': 'farmer'}
+2025-01-23 10:50:49,741 [INFO] "POST /api/user/ HTTP/1.1" 201 40
+2025-01-23 10:51:12,660 [INFO] "POST /api/login/ HTTP/1.1" 200 573
+2025-01-23 10:51:22,322 [INFO] "GET /api/predictions-list/ HTTP/1.1" 200 18
+2025-01-23 10:51:31,106 [WARNING] Unauthorized: /api/predict/
+2025-01-23 10:51:31,142 [WARNING] "POST /api/predict/ HTTP/1.1" 401 183
+2025-01-23 10:52:04,710 [INFO] "POST /api/login/ HTTP/1.1" 200 562
+2025-01-23 10:52:15,745 [INFO] - Broken pipe from ('192.168.0.75', 58613)
+2025-01-23 10:52:42,262 [INFO] "POST /api/login/ HTTP/1.1" 200 562
+2025-01-23 10:52:44,610 [INFO] "POST /api/login/ HTTP/1.1" 200 573
+2025-01-23 10:53:40,343 [WARNING] Unauthorized: /api/predict/
+2025-01-23 10:53:40,361 [WARNING] "POST /api/predict/ HTTP/1.1" 401 183
+2025-01-23 10:54:26,929 [WARNING] Unauthorized: /api/predict/
+2025-01-23 10:54:27,027 [WARNING] "POST /api/predict/ HTTP/1.1" 401 183
+2025-01-23 10:54:31,008 [INFO] - Broken pipe from ('192.168.0.31', 48408)
+2025-01-23 10:54:52,501 [WARNING] Unauthorized: /api/predict/
+2025-01-23 10:54:52,553 [WARNING] "POST /api/predict/ HTTP/1.1" 401 183
+2025-01-23 10:56:22,458 [INFO] "POST /api/login/ HTTP/1.1" 200 562
+2025-01-23 10:57:02,180 [WARNING] Unauthorized: /api/predict/
+2025-01-23 10:57:02,198 [WARNING] "POST /api/predict/ HTTP/1.1" 401 183
+2025-01-23 10:57:26,320 [INFO] - Broken pipe from ('192.168.0.75', 58673)
+2025-01-23 11:00:28,106 [INFO] Create user request received with data: {'fullname': 'Roger', 'email': 'shema@gmail.com', 'password': '123', 'role': 'farmer'}
+2025-01-23 11:00:28,114 [ERROR] Validation failed: {'email': [ErrorDetail(string='User with this email already exists.', code='unique')]}
+2025-01-23 11:00:28,115 [WARNING] Bad Request: /api/user/
+2025-01-23 11:00:28,118 [WARNING] "POST /api/user/ HTTP/1.1" 400 50
+2025-01-23 11:00:49,900 [INFO] Create user request received with data: {'fullname': 'Roger', 'email': 'Manzi@gmail.com', 'password': '123', 'role': 'farmer'}
+2025-01-23 11:00:50,124 [INFO] User created successfully: {'fullname': 'Roger', 'email': 'Manzi@gmail.com', 'password': 'pbkdf2_sha256$390000$SrWQQNkL8aEzkHK2zoeOzr$D7zOryQjPhpIbJZqDDgTKiTqfQqERR2175+WiqFc6wM=', 'role': 'farmer'}
+2025-01-23 11:00:50,125 [INFO] "POST /api/user/ HTTP/1.1" 201 40
+2025-01-23 11:01:07,186 [WARNING] Bad Request: /api/login/
+2025-01-23 11:01:07,187 [WARNING] "POST /api/login/ HTTP/1.1" 400 45
+2025-01-23 11:01:13,631 [WARNING] Bad Request: /api/login/
+2025-01-23 11:01:13,633 [WARNING] "POST /api/login/ HTTP/1.1" 400 45
+2025-01-23 11:01:19,686 [WARNING] Bad Request: /api/login/
+2025-01-23 11:01:19,686 [WARNING] "POST /api/login/ HTTP/1.1" 400 45
+2025-01-23 11:01:41,782 [WARNING] Bad Request: /api/login/
+2025-01-23 11:01:41,783 [WARNING] "POST /api/login/ HTTP/1.1" 400 45
+2025-01-23 11:03:05,776 [INFO] "POST /api/login/ HTTP/1.1" 200 562
+2025-01-23 11:03:09,889 [INFO] "GET /api/predictions-list/ HTTP/1.1" 200 18
+2025-01-23 11:03:42,050 [WARNING] Unauthorized: /api/predict/
+2025-01-23 11:03:42,122 [WARNING] "POST /api/predict/ HTTP/1.1" 401 183
+2025-01-23 11:09:26,783 [INFO] "POST /api/login/ HTTP/1.1" 200 562
+2025-01-23 11:09:57,260 [WARNING] Unauthorized: /api/predict/
+2025-01-23 11:09:57,420 [WARNING] "POST /api/predict/ HTTP/1.1" 401 183
+2025-01-23 11:59:49,419 [WARNING] Bad Request: /api/login/
+2025-01-23 11:59:49,428 [WARNING] "POST /api/login/ HTTP/1.1" 400 45
+2025-01-23 11:59:57,551 [INFO] "POST /api/login/ HTTP/1.1" 200 562
+2025-01-23 12:02:35,193 [WARNING] Unauthorized: /api/predict/
+2025-01-23 12:02:35,226 [WARNING] "POST /api/predict/ HTTP/1.1" 401 183
+2025-01-23 12:11:23,682 [INFO] "POST /api/login/ HTTP/1.1" 200 562
+2025-01-23 12:11:52,434 [WARNING] Unauthorized: /api/predict/
+2025-01-23 12:11:52,721 [WARNING] "POST /api/predict/ HTTP/1.1" 401 183
+2025-01-23 12:14:58,208 [WARNING] Unauthorized: /api/predict/
+2025-01-23 12:14:58,247 [WARNING] "POST /api/predict/ HTTP/1.1" 401 183
+2025-01-23 12:15:00,024 [WARNING] Unauthorized: /api/predict/
+2025-01-23 12:15:00,041 [WARNING] "POST /api/predict/ HTTP/1.1" 401 183
+2025-01-23 12:17:04,615 [INFO] D:\Project\WeedGuard\weedGuard\weedGuardApp\views.py changed, reloading.
+2025-01-23 12:38:27,405 [INFO] "GET / HTTP/1.1" 200 13174
+2025-01-23 12:38:27,609 [INFO] "GET /static/assets/images/pngtree-sweet-potato-vegetarian-food-icon-and-vector-logo-png-image_1570272.jpg HTTP/1.1" 200 33136
+2025-01-23 12:38:28,468 [INFO] "GET /static/assets/images/how-to-grow-sweet-potatoes_2000x1500.jpg HTTP/1.1" 200 635363
+2025-01-23 12:38:29,316 [WARNING] Not Found: /favicon.ico
+2025-01-23 12:38:29,317 [WARNING] "GET /favicon.ico HTTP/1.1" 404 4742
+2025-01-23 12:38:34,993 [INFO] "GET /loginn/ HTTP/1.1" 200 6713
+2025-01-23 12:38:40,582 [INFO] "GET / HTTP/1.1" 200 13174
+2025-01-23 12:38:50,913 [INFO] "GET /loginn/ HTTP/1.1" 200 6713
+2025-01-23 12:39:02,349 [INFO] "GET / HTTP/1.1" 200 13174
+2025-01-23 12:39:14,688 [INFO] "GET /loginn/ HTTP/1.1" 200 6713
+2025-01-23 12:39:31,082 [INFO] "POST /loginn/ HTTP/1.1" 302 0
+2025-01-23 12:39:31,232 [INFO] "GET /admin-dashboard/ HTTP/1.1" 200 11129
+2025-01-23 12:39:31,273 [INFO] "GET /static/assets/images/user.jpg HTTP/1.1" 304 0
+2025-01-23 17:54:48,309 [INFO] "POST /api/login/ HTTP/1.1" 200 562
+2025-01-23 17:54:50,296 [INFO] "GET /api/predictions-list/ HTTP/1.1" 200 686
+2025-01-23 17:54:57,711 [INFO] - Broken pipe from ('192.168.3.115', 60467)
+2025-01-23 17:55:23,598 [WARNING] Unauthorized: /api/predict/
+2025-01-23 17:55:23,721 [WARNING] "POST /api/predict/ HTTP/1.1" 401 183
+2025-01-23 17:55:29,046 [INFO] - Broken pipe from ('192.168.3.115', 60482)
+2025-01-23 17:56:33,731 [WARNING] Unauthorized: /api/predict/
+2025-01-23 17:56:33,767 [WARNING] "POST /api/predict/ HTTP/1.1" 401 183
+2025-01-23 17:59:04,398 [WARNING] Unauthorized: /api/predict/
+2025-01-23 17:59:04,792 [WARNING] "POST /api/predict/ HTTP/1.1" 401 183
+2025-01-23 18:03:02,568 [INFO] "POST /api/login/ HTTP/1.1" 200 562
+2025-01-23 18:03:33,297 [WARNING] Unauthorized: /api/predict/
+2025-01-23 18:03:33,332 [WARNING] "POST /api/predict/ HTTP/1.1" 401 183
+2025-01-23 18:05:59,583 [WARNING] Unauthorized: /api/predict/
+2025-01-23 18:05:59,627 [WARNING] "POST /api/predict/ HTTP/1.1" 401 183
+2025-01-23 18:07:16,928 [INFO] "POST /api/login/ HTTP/1.1" 200 562
+2025-01-23 18:07:40,511 [WARNING] Unauthorized: /api/predict/
+2025-01-23 18:07:40,620 [WARNING] "POST /api/predict/ HTTP/1.1" 401 183
+2025-01-23 18:10:17,461 [INFO] "POST /api/login/ HTTP/1.1" 200 562
+2025-01-23 18:10:35,758 [WARNING] Unauthorized: /api/predict/
+2025-01-23 18:10:35,797 [WARNING] "POST /api/predict/ HTTP/1.1" 401 183
+2025-01-23 18:17:47,597 [INFO] "POST /api/login/ HTTP/1.1" 200 562
+2025-01-23 18:17:49,172 [INFO] "GET /api/predictions-list/ HTTP/1.1" 200 18
+2025-01-23 18:18:07,519 [WARNING] Unauthorized: /api/predict/
+2025-01-23 18:18:07,532 [WARNING] "POST /api/predict/ HTTP/1.1" 401 183
+2025-01-23 18:26:08,636 [WARNING] Bad Request: /api/login/
+2025-01-23 18:26:08,638 [WARNING] "POST /api/login/ HTTP/1.1" 400 45
+2025-01-23 18:26:32,111 [INFO] "POST /api/login/ HTTP/1.1" 200 562
+2025-01-23 18:26:34,878 [INFO] "GET /api/predictions-list/ HTTP/1.1" 200 18
+2025-01-23 18:27:09,818 [WARNING] Unauthorized: /api/predict/
+2025-01-23 18:27:09,834 [WARNING] "POST /api/predict/ HTTP/1.1" 401 58
+2025-01-23 18:27:20,659 [WARNING] Unauthorized: /api/predict/
+2025-01-23 18:27:20,663 [WARNING] "POST /api/predict/ HTTP/1.1" 401 58
+2025-01-23 18:27:22,905 [WARNING] Unauthorized: /api/predict/
+2025-01-23 18:27:22,910 [WARNING] "POST /api/predict/ HTTP/1.1" 401 58
+2025-01-23 18:27:24,549 [WARNING] Unauthorized: /api/predict/
+2025-01-23 18:27:24,555 [WARNING] "POST /api/predict/ HTTP/1.1" 401 58
+2025-01-23 18:27:29,371 [INFO] - Broken pipe from ('192.168.3.115', 60679)
+2025-01-23 18:41:43,150 [INFO] "POST /api/login/ HTTP/1.1" 200 562
+2025-01-23 18:41:46,163 [INFO] "GET /api/predictions-list/ HTTP/1.1" 200 18
+2025-01-23 18:42:10,423 [WARNING] Unauthorized: /api/predict/
+2025-01-23 18:42:10,451 [WARNING] "POST /api/predict/ HTTP/1.1" 401 58
+2025-01-23 19:06:31,914 [WARNING] Bad Request: /api/login/
+2025-01-23 19:06:31,919 [WARNING] "POST /api/login/ HTTP/1.1" 400 45
+2025-01-23 19:06:44,470 [WARNING] Bad Request: /api/login/
+2025-01-23 19:06:44,472 [WARNING] "POST /api/login/ HTTP/1.1" 400 45
+2025-01-23 19:06:52,798 [INFO] "POST /api/login/ HTTP/1.1" 200 562
+2025-01-23 19:06:55,186 [INFO] "GET /api/predictions-list/ HTTP/1.1" 200 686
+2025-01-23 19:07:11,936 [WARNING] Unauthorized: /api/predict/
+2025-01-23 19:07:11,941 [WARNING] "POST /api/predict/ HTTP/1.1" 401 58
+2025-01-23 19:08:14,138 [INFO] D:\Project\WeedGuard\weedGuard\weedGuardApp\views.py changed, reloading.
+2025-01-23 19:08:43,721 [WARNING] Unauthorized: /api/predict/
+2025-01-23 19:08:43,735 [WARNING] "POST /api/predict/ HTTP/1.1" 401 58
+2025-01-23 19:09:52,271 [INFO] "POST /api/login/ HTTP/1.1" 200 562
+2025-01-23 19:09:53,628 [INFO] "GET /api/predictions-list/ HTTP/1.1" 200 686
+2025-01-23 19:10:05,011 [WARNING] Unauthorized: /api/predict/
+2025-01-23 19:10:05,038 [WARNING] "POST /api/predict/ HTTP/1.1" 401 58
+2025-01-23 19:10:11,737 [INFO] - Broken pipe from ('192.168.3.115', 60879)
+2025-01-23 19:10:27,181 [INFO] D:\Project\WeedGuard\weedGuard\weedGuardApp\views.py changed, reloading.
+2025-01-23 19:22:30,743 [INFO] D:\Project\WeedGuard\weedGuard\weedGuardApp\views.py changed, reloading.
+2025-01-23 20:14:32,172 [INFO] "POST /api/login/ HTTP/1.1" 200 562
+2025-01-23 20:14:51,299 [WARNING] Unauthorized: /api/predict/
+2025-01-23 20:14:51,311 [WARNING] "POST /api/predict/ HTTP/1.1" 401 58
+2025-01-23 20:29:37,633 [INFO] "POST /api/login/ HTTP/1.1" 200 562
+2025-01-23 20:29:54,288 [WARNING] Unauthorized: /api/predict/
+2025-01-23 20:29:54,368 [WARNING] "POST /api/predict/ HTTP/1.1" 401 58
+2025-01-24 09:05:15,015 [INFO] "POST /api/login/ HTTP/1.1" 200 562
+2025-01-24 09:05:17,899 [INFO] "GET /api/predictions-list/ HTTP/1.1" 200 686
+2025-01-24 09:05:23,629 [INFO] "GET /api/analytics/ HTTP/1.1" 200 477
+2025-01-24 09:06:07,299 [WARNING] Unauthorized: /api/predict/
+2025-01-24 09:06:07,354 [WARNING] "POST /api/predict/ HTTP/1.1" 401 58
+2025-01-24 09:22:00,557 [INFO] "POST /api/login/ HTTP/1.1" 200 562
+2025-01-24 09:22:25,037 [INFO] Prediction request from user: roger@gmail.com
+2025-01-24 09:22:25,273 [INFO] Temporary image saved: D:\Project\WeedGuard\weedGuard\temp_images\ff717919-57c1-45ee-acff-dcb89b42c719.jpg
+2025-01-24 09:22:26,667 [INFO] Prediction saved with ID: 30
+2025-01-24 09:22:26,669 [INFO] "POST /api/predict/ HTTP/1.1" 201 139
+2025-01-24 09:24:33,855 [INFO] "GET /api/predictions-list/ HTTP/1.1" 200 873
+2025-01-24 09:25:14,106 [INFO] Create user request received with data: {'fullname': 'Eric', 'email': 'eric@gmail.com', 'password': '123123', 'role': 'farmer'}
+2025-01-24 09:25:14,346 [INFO] User created successfully: {'fullname': 'Eric', 'email': 'eric@gmail.com', 'password': 'pbkdf2_sha256$390000$XSxUvGvehLFJ2vaFvDNJDK$X0ADdDdqWIrQ1OhRKMKcXeGJ/I+Mb943q/fMX3YIGfA=', 'role': 'farmer'}
+2025-01-24 09:25:14,348 [INFO] "POST /api/user/ HTTP/1.1" 201 40
+2025-01-24 09:26:25,619 [INFO] "POST /api/login/ HTTP/1.1" 200 565
+2025-01-24 09:27:13,135 [INFO] "GET /api/analytics/ HTTP/1.1" 200 224
+2025-01-24 09:27:19,220 [INFO] - Broken pipe from ('192.168.8.106', 64091)
+2025-01-24 09:29:22,452 [INFO] "POST /api/login/ HTTP/1.1" 200 565
+2025-01-24 09:29:34,085 [INFO] "GET /api/predictions-list/ HTTP/1.1" 200 18
+2025-01-24 09:30:39,438 [INFO] Prediction request from user: eric@gmail.com
+2025-01-24 09:30:39,499 [INFO] Temporary image saved: D:\Project\WeedGuard\weedGuard\temp_images\9ff0b781-53a3-41de-a71e-9d2d98526700.jpg
+2025-01-24 09:30:39,629 [INFO] Prediction saved with ID: 31
+2025-01-24 09:30:39,631 [INFO] "POST /api/predict/ HTTP/1.1" 201 142
+2025-01-24 09:31:00,484 [INFO] "GET /api/analytics/ HTTP/1.1" 200 545
+2025-01-24 09:33:03,605 [INFO] "GET /api/predictions-list/ HTTP/1.1" 200 208
+2025-01-24 09:41:47,501 [INFO] Prediction request from user: eric@gmail.com
+2025-01-24 09:41:47,537 [INFO] Temporary image saved: D:\Project\WeedGuard\weedGuard\temp_images\8a7d95ce-cb46-4be9-abe2-73eec4bc2d3b.jpg
+2025-01-24 09:41:47,722 [INFO] Prediction saved with ID: 32
+2025-01-24 09:41:47,723 [INFO] "POST /api/predict/ HTTP/1.1" 201 137
+2025-01-24 09:45:08,625 [WARNING] Bad Request: /api/login/
+2025-01-24 09:45:08,626 [WARNING] "POST /api/login/ HTTP/1.1" 400 45
+2025-01-24 09:45:15,136 [INFO] "POST /api/login/ HTTP/1.1" 200 565
+2025-01-24 09:45:18,532 [INFO] "GET /api/predictions-list/ HTTP/1.1" 200 394
+2025-01-24 09:45:39,107 [INFO] Prediction request from user: eric@gmail.com
+2025-01-24 09:45:39,183 [INFO] Temporary image saved: D:\Project\WeedGuard\weedGuard\temp_images\67525db5-adcd-4674-a7cc-13a3666619ba.jpg
+2025-01-24 09:45:39,327 [INFO] Prediction saved with ID: 33
+2025-01-24 09:45:39,329 [INFO] "POST /api/predict/ HTTP/1.1" 201 136
+2025-01-24 09:45:48,619 [INFO] "GET /api/predictions-list/ HTTP/1.1" 200 579
+2025-01-24 09:46:01,324 [INFO] - Broken pipe from ('192.168.8.106', 64206)
+2025-01-24 09:49:39,039 [INFO] D:\Project\WeedGuard\weedGuard\weedGuardApp\views.py changed, reloading.
+2025-01-24 09:50:12,869 [INFO] D:\Project\WeedGuard\weedGuard\weedGuardApp\views.py changed, reloading.
+2025-01-24 09:50:45,732 [INFO] D:\Project\WeedGuard\weedGuard\weedGuardApp\views.py changed, reloading.
+2025-01-24 09:51:51,448 [WARNING] Bad Request: /api/login/
+2025-01-24 09:51:51,464 [WARNING] "POST /api/login/ HTTP/1.1" 400 45
+2025-01-24 09:51:59,811 [INFO] "POST /api/login/ HTTP/1.1" 200 565
+2025-01-24 09:52:20,600 [INFO] Prediction request from user: eric@gmail.com
+2025-01-24 09:52:20,907 [INFO] Temporary image saved: D:\Project\WeedGuard\weedGuard\temp_images\2f2d7345-7a27-4f03-b91e-e2914e44c833.jpg
+2025-01-24 09:52:20,981 [WARNING] Uploaded image is not predominantly green
+2025-01-24 09:52:20,982 [WARNING] Bad Request: /api/predict/
+2025-01-24 09:52:20,985 [WARNING] "POST /api/predict/ HTTP/1.1" 400 55
+2025-01-24 09:52:49,277 [INFO] Prediction request from user: eric@gmail.com
+2025-01-24 09:52:49,312 [INFO] Temporary image saved: D:\Project\WeedGuard\weedGuard\temp_images\dfa3f1e3-71e4-4ede-98be-f004a9c98e47.jpg
+2025-01-24 09:52:50,525 [INFO] Prediction saved with ID: 34
+2025-01-24 09:52:50,526 [INFO] "POST /api/predict/ HTTP/1.1" 201 136
+2025-01-24 09:53:47,784 [INFO] Prediction request from user: eric@gmail.com
+2025-01-24 09:53:47,799 [INFO] Temporary image saved: D:\Project\WeedGuard\weedGuard\temp_images\0bdcc813-ae1a-4d69-952a-f6922345de4c.jpg
+2025-01-24 09:53:47,834 [WARNING] Uploaded image is not predominantly green
+2025-01-24 09:53:47,836 [WARNING] Bad Request: /api/predict/
+2025-01-24 09:53:47,837 [WARNING] "POST /api/predict/ HTTP/1.1" 400 55
+2025-01-24 09:53:54,701 [INFO] - Broken pipe from ('192.168.8.106', 64269)
+2025-01-24 09:55:36,930 [INFO] "POST /api/login/ HTTP/1.1" 200 565
+2025-01-24 09:55:38,470 [INFO] "GET /api/predictions-list/ HTTP/1.1" 200 764
+2025-01-24 09:56:08,451 [INFO] "GET /api/predictions-list/ HTTP/1.1" 200 764
+2025-01-24 09:56:38,446 [INFO] "GET /api/predictions-list/ HTTP/1.1" 200 764
+2025-01-24 09:57:08,445 [INFO] "GET /api/predictions-list/ HTTP/1.1" 200 764
+2025-01-24 09:57:38,564 [INFO] "GET /api/predictions-list/ HTTP/1.1" 200 764
+2025-01-24 09:57:48,216 [INFO] D:\Project\WeedGuard\weedGuard\weedGuardApp\models.py changed, reloading.
+2025-01-24 09:58:08,528 [INFO] "GET /api/predictions-list/ HTTP/1.1" 200 764
+2025-01-24 09:58:26,778 [INFO] D:\Project\WeedGuard\weedGuard\weedGuardApp\models.py changed, reloading.
+2025-01-24 09:58:38,554 [INFO] "GET /api/predictions-list/ HTTP/1.1" 200 764
+2025-01-24 09:58:58,442 [INFO] D:\Project\WeedGuard\weedGuard\weedGuardApp\views.py changed, reloading.
+2025-01-24 10:00:38,542 [INFO] "GET /api/predictions-list/ HTTP/1.1" 200 764
+2025-01-24 10:00:41,335 [INFO] "GET /api/predictions-list/ HTTP/1.1" 200 764
+2025-01-24 10:00:50,559 [INFO] "GET /api/predictions-list/ HTTP/1.1" 200 764
+2025-01-24 10:01:08,577 [INFO] "GET /api/predictions-list/ HTTP/1.1" 200 764
+2025-01-24 10:01:38,475 [INFO] "GET /api/predictions-list/ HTTP/1.1" 200 764
+2025-01-24 10:01:45,433 [INFO] Prediction request from user: eric@gmail.com
+2025-01-24 10:01:45,524 [INFO] Temporary image saved: D:\Project\WeedGuard\weedGuard\temp_images\ed7881d3-8353-48e7-be33-0f686f0ed926.jpg
+2025-01-24 10:01:45,591 [INFO] Prediction saved with ID: 35
+2025-01-24 10:01:45,591 [INFO] "POST /api/predict/ HTTP/1.1" 201 130
+2025-01-24 10:02:08,481 [INFO] "GET /api/predictions-list/ HTTP/1.1" 200 943
+2025-01-24 10:02:38,478 [INFO] "GET /api/predictions-list/ HTTP/1.1" 200 943
+2025-01-24 10:03:08,484 [INFO] "GET /api/predictions-list/ HTTP/1.1" 200 943
+2025-01-24 10:03:38,486 [INFO] "GET /api/predictions-list/ HTTP/1.1" 200 943
+2025-01-24 10:03:45,382 [INFO] D:\Project\WeedGuard\weedGuard\weedGuardApp\views.py changed, reloading.
+2025-01-24 10:04:04,923 [INFO] Prediction request from user: eric@gmail.com
+2025-01-24 10:04:05,004 [INFO] Temporary image saved: D:\Project\WeedGuard\weedGuard\temp_images\b5f35698-e9a1-444d-868c-8be3eff49bfd.jpg
+2025-01-24 10:04:06,282 [INFO] Prediction saved with ID: 36
+2025-01-24 10:04:06,283 [INFO] "POST /api/predict/ HTTP/1.1" 201 139
+2025-01-24 10:04:08,495 [INFO] "GET /api/predictions-list/ HTTP/1.1" 200 1131
+2025-01-24 10:04:38,499 [INFO] "GET /api/predictions-list/ HTTP/1.1" 200 1131
+2025-01-24 10:04:47,526 [INFO] D:\Project\WeedGuard\weedGuard\weedGuardApp\views.py changed, reloading.
+2025-01-24 10:05:08,544 [INFO] "GET /api/predictions-list/ HTTP/1.1" 200 1131
+2025-01-24 10:05:38,499 [INFO] "GET /api/predictions-list/ HTTP/1.1" 200 1131
+2025-01-24 10:05:57,516 [INFO] D:\Project\WeedGuard\weedGuard\weedGuardApp\views.py changed, reloading.
+2025-01-24 10:06:08,519 [INFO] "GET /api/predictions-list/ HTTP/1.1" 200 1131
+2025-01-24 10:06:38,453 [INFO] "GET /api/predictions-list/ HTTP/1.1" 200 1131
+2025-01-24 10:07:08,512 [INFO] "GET /api/predictions-list/ HTTP/1.1" 200 1131
+2025-01-24 10:07:30,026 [INFO] D:\Project\WeedGuard\weedGuard\weedGuardApp\views.py changed, reloading.
+2025-01-24 10:07:38,560 [INFO] "GET /api/predictions-list/ HTTP/1.1" 200 1131
+2025-01-24 10:07:55,813 [INFO] Prediction request from user: eric@gmail.com
+2025-01-24 10:07:56,022 [INFO] Temporary image saved: D:\Project\WeedGuard\weedGuard\temp_images\a600c588-29ed-450f-8842-fdb4bd8ab988.jpg
+2025-01-24 10:07:57,076 [INFO] Prediction saved with ID: 37
+2025-01-24 10:07:57,078 [INFO] "POST /api/predict/ HTTP/1.1" 201 137
+2025-01-24 10:08:08,473 [INFO] "GET /api/predictions-list/ HTTP/1.1" 200 1317
+2025-01-24 10:08:18,951 [INFO] "GET /api/analytics/ HTTP/1.1" 200 1498
+2025-01-24 10:08:38,620 [INFO] "GET /api/predictions-list/ HTTP/1.1" 200 1317
+2025-01-24 10:09:08,506 [INFO] "GET /api/predictions-list/ HTTP/1.1" 200 1317
+2025-01-24 10:09:38,501 [INFO] "GET /api/predictions-list/ HTTP/1.1" 200 1317
+2025-01-24 10:10:08,532 [INFO] "GET /api/predictions-list/ HTTP/1.1" 200 1317
+2025-01-24 10:10:38,535 [INFO] "GET /api/predictions-list/ HTTP/1.1" 200 1317
+2025-01-24 10:11:08,518 [INFO] "GET /api/predictions-list/ HTTP/1.1" 200 1317
+2025-01-24 10:11:38,540 [INFO] "GET /api/predictions-list/ HTTP/1.1" 200 1317
+2025-01-24 10:12:08,501 [INFO] "GET /api/predictions-list/ HTTP/1.1" 200 1317
+2025-01-24 10:12:38,516 [INFO] "GET /api/predictions-list/ HTTP/1.1" 200 1317
+2025-01-24 10:13:08,554 [INFO] "GET /api/predictions-list/ HTTP/1.1" 200 1317
+2025-01-24 10:13:38,555 [INFO] "GET /api/predictions-list/ HTTP/1.1" 200 1317
+2025-01-24 10:13:46,022 [INFO] - Broken pipe from ('192.168.8.106', 64354)
+2025-01-24 10:14:32,049 [INFO] "POST /api/login/ HTTP/1.1" 200 565
+2025-01-24 10:20:40,999 [INFO] "POST /api/login/ HTTP/1.1" 200 565
+2025-01-24 10:20:44,845 [INFO] "GET /api/predictions-list/ HTTP/1.1" 200 1317
+2025-01-24 10:21:14,943 [INFO] "GET /api/predictions-list/ HTTP/1.1" 200 1317
+2025-01-24 10:21:32,282 [INFO] - Broken pipe from ('192.168.8.106', 64390)
+2025-01-24 10:22:07,572 [INFO] "POST /api/login/ HTTP/1.1" 200 565
+2025-01-24 10:42:06,114 [INFO] "POST /api/login/ HTTP/1.1" 200 565
+2025-01-24 10:42:10,206 [INFO] "GET /api/analytics/ HTTP/1.1" 200 1498
+2025-01-24 10:44:44,103 [INFO] "GET /api/analytics/ HTTP/1.1" 200 1498
+2025-01-24 10:48:29,175 [INFO] "GET /api/analytics/ HTTP/1.1" 200 1498
+2025-01-24 10:49:05,090 [INFO] "GET /api/analytics/ HTTP/1.1" 200 1498
+2025-01-24 10:49:42,055 [INFO] "GET /api/analytics/ HTTP/1.1" 200 1498
+2025-01-24 10:50:27,225 [INFO] "GET /api/analytics/ HTTP/1.1" 200 1498
+2025-01-24 10:50:32,626 [INFO] "GET /api/analytics/ HTTP/1.1" 200 1498
+2025-01-24 10:50:51,275 [INFO] "GET /api/analytics/ HTTP/1.1" 200 1498
+2025-01-24 10:51:34,083 [INFO] "GET /api/analytics/ HTTP/1.1" 200 1498
+2025-01-24 10:52:32,953 [INFO] "GET /api/analytics/ HTTP/1.1" 200 1498
+2025-01-24 10:52:45,227 [INFO] "GET /api/analytics/ HTTP/1.1" 200 1498
+2025-01-24 10:53:22,171 [INFO] "GET /api/analytics/ HTTP/1.1" 200 1498
+2025-01-24 10:53:27,742 [INFO] "GET /api/analytics/ HTTP/1.1" 200 1498
+2025-01-24 10:53:32,969 [INFO] "GET /api/analytics/ HTTP/1.1" 200 1498
+2025-01-24 10:53:38,370 [INFO] "GET /api/analytics/ HTTP/1.1" 200 1498
+2025-01-24 10:54:07,045 [INFO] "GET /api/analytics/ HTTP/1.1" 200 1498
+2025-01-24 10:54:44,844 [INFO] "GET /api/analytics/ HTTP/1.1" 200 1498
+2025-01-24 10:54:50,558 [INFO] "GET /api/analytics/ HTTP/1.1" 200 1498
+2025-01-24 10:55:06,855 [INFO] "GET /api/analytics/ HTTP/1.1" 200 1498
+2025-01-24 10:55:12,034 [INFO] "GET /api/analytics/ HTTP/1.1" 200 1498
+2025-01-24 10:55:27,833 [INFO] "GET /api/analytics/ HTTP/1.1" 200 1498
+2025-01-24 10:55:51,590 [INFO] "GET /api/analytics/ HTTP/1.1" 200 1498
+2025-01-24 10:56:16,567 [INFO] - Broken pipe from ('192.168.8.106', 64516)
+2025-01-24 10:59:12,421 [INFO] "GET / HTTP/1.1" 200 13174
+2025-01-24 10:59:13,080 [WARNING] Not Found: /favicon.ico
+2025-01-24 10:59:13,082 [WARNING] "GET /favicon.ico HTTP/1.1" 404 4742
+2025-01-24 10:59:25,145 [INFO] "GET /loginn/ HTTP/1.1" 200 6713
+2025-01-24 10:59:34,476 [INFO] "GET / HTTP/1.1" 200 13174
+2025-01-24 11:00:04,427 [INFO] D:\Project\WeedGuard\weedGuard\weedGuardWebApp\views.py changed, reloading.
+2025-01-24 11:02:35,181 [INFO] D:\Project\WeedGuard\weedGuard\weedGuardWebApp\views.py changed, reloading.
+2025-01-24 11:05:25,064 [INFO] D:\Project\WeedGuard\weedGuard\weedGuardWebApp\views.py changed, reloading.
+2025-01-24 11:06:48,696 [INFO] D:\Project\WeedGuard\weedGuard\weedGuardWebApp\views.py changed, reloading.
+2025-01-24 11:08:02,020 [INFO] D:\Project\WeedGuard\weedGuard\weedGuardWebApp\urls.py changed, reloading.
+2025-01-24 11:09:24,113 [INFO] D:\Project\WeedGuard\weedGuard\weedGuardWebApp\views.py changed, reloading.
+2025-01-24 11:09:35,801 [INFO] D:\Project\WeedGuard\weedGuard\weedGuardWebApp\views.py changed, reloading.
+2025-01-24 11:10:10,808 [INFO] D:\Project\WeedGuard\weedGuard\weedGuardWebApp\views.py changed, reloading.
+2025-01-24 11:10:29,317 [INFO] D:\Project\WeedGuard\weedGuard\weedGuardWebApp\views.py changed, reloading.
+2025-01-24 11:10:39,464 [INFO] D:\Project\WeedGuard\weedGuard\weedGuardWebApp\views.py changed, reloading.
+2025-01-24 11:10:52,914 [INFO] D:\Project\WeedGuard\weedGuard\weedGuardWebApp\views.py changed, reloading.
+2025-01-24 11:11:25,800 [INFO] D:\Project\WeedGuard\weedGuard\weedGuardWebApp\views.py changed, reloading.
+2025-01-24 11:11:41,880 [INFO] D:\Project\WeedGuard\weedGuard\weedGuardWebApp\views.py changed, reloading.
+2025-01-24 11:16:05,495 [INFO] D:\Project\WeedGuard\weedGuard\weedGuardWebApp\urls.py changed, reloading.
+2025-01-24 11:17:25,923 [INFO] "GET / HTTP/1.1" 200 13174
+2025-01-24 11:17:32,986 [INFO] "GET /loginn/ HTTP/1.1" 200 6713
+2025-01-24 11:17:36,276 [INFO] "POST /loginn/ HTTP/1.1" 302 0
+2025-01-24 11:17:36,281 [INFO] "GET /loginn/ HTTP/1.1" 200 6713
+2025-01-24 11:17:40,416 [INFO] "POST /loginn/ HTTP/1.1" 302 0
+2025-01-24 11:17:40,423 [INFO] "GET /loginn/ HTTP/1.1" 200 6713
+2025-01-24 11:17:50,559 [INFO] "POST /loginn/ HTTP/1.1" 302 0
+2025-01-24 11:17:50,684 [INFO] "GET /admin-dashboard/ HTTP/1.1" 200 11133
+2025-01-24 11:17:50,727 [INFO] "GET /static/assets/images/user.jpg HTTP/1.1" 304 0
+2025-01-24 11:18:05,503 [INFO] "GET /prediction HTTP/1.1" 200 11704
+2025-01-24 11:35:10,575 [INFO] D:\Project\WeedGuard\weedGuard\weedGuardWebApp\views.py changed, reloading.
+2025-01-24 11:36:16,683 [ERROR] Internal Server Error: /prediction
+Traceback (most recent call last):
+  File "C:\Users\SHEMA 01\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 56, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SHEMA 01\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Project\WeedGuard\weedGuard\weedGuardWebApp\views.py", line 91, in prediction_list
+    predictions_list = Prediction.objects.all().order_by('-timestamp')
+                ^^^^^^^^^
+NameError: name 'Paginator' is not defined
+2025-01-24 11:36:16,691 [ERROR] "GET /prediction HTTP/1.1" 500 76020
+2025-01-24 11:37:13,318 [INFO] D:\Project\WeedGuard\weedGuard\weedGuardWebApp\views.py changed, reloading.
+2025-01-24 11:37:27,787 [ERROR] Internal Server Error: /prediction
+Traceback (most recent call last):
+  File "C:\Users\SHEMA 01\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 56, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SHEMA 01\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Project\WeedGuard\weedGuard\weedGuardWebApp\views.py", line 95, in prediction_list
+    return render(request, 'weedGuardWebApp/prediction_list.html', {'predictions': predictions})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SHEMA 01\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SHEMA 01\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SHEMA 01\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SHEMA 01\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SHEMA 01\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SHEMA 01\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SHEMA 01\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SHEMA 01\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\defaulttags.py", line 471, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SHEMA 01\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SHEMA 01\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\urls\resolvers.py", line 828, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'dashboard' not found. 'dashboard' is not a valid view function or pattern name.
+2025-01-24 11:37:27,791 [ERROR] "GET /prediction HTTP/1.1" 500 128663
+2025-01-24 11:38:29,506 [INFO] "GET /prediction HTTP/1.1" 200 20445
+2025-01-24 11:38:36,413 [INFO] "GET /prediction?page=2 HTTP/1.1" 200 20937
+2025-01-24 11:38:39,993 [INFO] "GET /prediction?page=3 HTTP/1.1" 200 20913
+2025-01-24 11:39:39,290 [INFO] D:\Project\WeedGuard\weedGuard\weedGuardWebApp\views.py changed, reloading.
+2025-01-24 11:41:54,501 [INFO] "GET /prediction?page=3 HTTP/1.1" 200 18570
+2025-01-24 11:42:10,114 [INFO] "GET /predict HTTP/1.1" 200 11521
+2025-01-24 11:42:15,001 [INFO] "GET /predict HTTP/1.1" 200 11521
+2025-01-24 11:42:19,221 [INFO] "GET /predict HTTP/1.1" 200 11521
+2025-01-24 11:44:04,518 [INFO] "GET /predict HTTP/1.1" 200 11524
+2025-01-24 11:44:07,368 [INFO] "GET /prediction HTTP/1.1" 200 18082
+2025-01-24 11:44:26,119 [INFO] "GET /prediction?page=2 HTTP/1.1" 200 18579
+2025-01-24 11:44:27,846 [INFO] "GET /prediction?page=3 HTTP/1.1" 200 18570
+2025-01-24 11:44:29,525 [INFO] "GET /prediction?page=4 HTTP/1.1" 200 18561
+2025-01-24 11:45:41,004 [INFO] "GET /admin-dashboard/ HTTP/1.1" 200 11397
+2025-01-24 11:45:49,165 [INFO] "GET /logout/ HTTP/1.1" 302 0
+2025-01-24 11:45:50,053 [WARNING] Method Not Allowed: /api/login/
+2025-01-24 11:45:50,057 [WARNING] "GET /api/login/ HTTP/1.1" 405 10449
+2025-01-24 11:45:50,636 [INFO] "GET /static/rest_framework/css/bootstrap-tweaks.css HTTP/1.1" 200 3426
+2025-01-24 11:45:50,681 [INFO] "GET /static/rest_framework/css/default.css HTTP/1.1" 200 1152
+2025-01-24 11:45:50,697 [INFO] "GET /static/rest_framework/js/csrf.js HTTP/1.1" 200 1793
+2025-01-24 11:45:50,765 [INFO] "GET /static/rest_framework/css/bootstrap.min.css HTTP/1.1" 200 121457
+2025-01-24 11:45:50,777 [INFO] "GET /static/rest_framework/css/prettify.css HTTP/1.1" 200 817
+2025-01-24 11:45:50,778 [INFO] "GET /static/rest_framework/js/ajax-form.js HTTP/1.1" 200 3796
+2025-01-24 11:45:50,793 [INFO] "GET /static/rest_framework/img/grid.png HTTP/1.1" 200 1458
+2025-01-24 11:45:50,824 [INFO] "GET /static/rest_framework/js/load-ajax-form.js HTTP/1.1" 200 59
+2025-01-24 11:45:50,849 [INFO] "GET /static/rest_framework/js/default.js HTTP/1.1" 200 1268
+2025-01-24 11:45:50,877 [INFO] "GET /static/rest_framework/js/prettify-min.js HTTP/1.1" 200 13632
+2025-01-24 11:45:50,884 [INFO] "GET /static/rest_framework/js/bootstrap.min.js HTTP/1.1" 200 39680
+2025-01-24 11:45:50,958 [INFO] "GET /static/rest_framework/js/jquery-3.7.1.min.js HTTP/1.1" 200 87533
+2025-01-24 11:46:13,897 [INFO] D:\Project\WeedGuard\weedGuard\weedGuardWebApp\urls.py changed, reloading.
+2025-01-24 11:46:23,988 [WARNING] Not Found: /logout/
+2025-01-24 11:46:23,990 [WARNING] "GET /logout/ HTTP/1.1" 404 5141
+2025-01-24 11:46:28,001 [WARNING] Not Found: /logout/
+2025-01-24 11:46:28,004 [WARNING] "GET /logout/ HTTP/1.1" 404 5141
+2025-01-24 11:46:40,203 [INFO] D:\Project\WeedGuard\weedGuard\weedGuardWebApp\urls.py changed, reloading.
+2025-01-24 11:47:01,854 [INFO] "GET /admin-dashboard/ HTTP/1.1" 200 11398
+2025-01-24 11:47:09,017 [INFO] "GET /logoutt/ HTTP/1.1" 302 0
+2025-01-24 11:47:09,124 [WARNING] Method Not Allowed: /api/login/
+2025-01-24 11:47:09,126 [WARNING] "GET /api/login/ HTTP/1.1" 405 10449
+2025-01-24 11:47:27,490 [INFO] D:\Project\WeedGuard\weedGuard\weedGuardWebApp\views.py changed, reloading.
+2025-01-24 11:47:38,152 [INFO] "GET /logoutt/ HTTP/1.1" 302 0
+2025-01-24 11:47:38,193 [INFO] "GET /loginn/ HTTP/1.1" 200 6713
+2025-01-24 11:47:48,845 [INFO] "GET /admin-dashboard/ HTTP/1.1" 200 11398
+2025-01-24 11:47:55,822 [INFO] "GET /prediction HTTP/1.1" 200 18083
+2025-01-24 11:48:02,725 [INFO] "GET /logoutt/ HTTP/1.1" 302 0
+2025-01-24 11:48:02,732 [INFO] "GET /loginn/ HTTP/1.1" 200 6713
+2025-01-24 11:50:26,368 [INFO] "GET /prediction HTTP/1.1" 200 6427
+2025-01-24 11:52:51,943 [INFO] "GET /prediction HTTP/1.1" 200 23953
+2025-01-24 11:53:11,062 [INFO] "GET /prediction?page=6 HTTP/1.1" 200 12589
+2025-01-24 11:53:13,203 [INFO] "GET /prediction?page=1 HTTP/1.1" 200 23953
+2025-01-24 11:53:17,113 [INFO] "GET /prediction?page=2 HTTP/1.1" 200 24471
+2025-01-24 11:53:18,082 [INFO] "GET /prediction?page=3 HTTP/1.1" 200 24463
+2025-01-24 11:53:19,494 [INFO] "GET /prediction?page=4 HTTP/1.1" 200 24454
+2025-01-24 11:53:20,213 [INFO] "GET /prediction?page=5 HTTP/1.1" 200 24444
+2025-01-24 11:53:20,933 [INFO] "GET /prediction?page=6 HTTP/1.1" 200 12589
+2025-01-24 11:53:24,543 [INFO] "GET /prediction?page=1 HTTP/1.1" 200 23953
+2025-01-24 11:54:48,453 [INFO] "GET /prediction?page=1 HTTP/1.1" 200 23936
+2025-01-24 11:55:54,535 [INFO] "GET /prediction?page=2 HTTP/1.1" 200 24498
+2025-01-24 11:56:00,667 [INFO] "GET /prediction?page=2 HTTP/1.1" 200 24498
+2025-01-24 11:56:04,158 [INFO] "GET /prediction?page=1 HTTP/1.1" 200 23988
+2025-01-24 11:56:14,741 [INFO] "GET /predictions/35/delete/ HTTP/1.1" 200 6264
+2025-01-24 11:56:20,364 [INFO] "POST /predictions/35/delete/ HTTP/1.1" 302 0
+2025-01-24 11:56:20,403 [INFO] "GET /prediction HTTP/1.1" 200 24001
+2025-01-24 11:56:32,897 [INFO] "GET /prediction/37/ HTTP/1.1" 200 6782
+2025-01-24 11:56:33,068 [INFO] "GET /media/predictions/prediction_T9LPXtT.jpg HTTP/1.1" 200 135774
+2025-01-24 11:56:39,725 [INFO] "GET /prediction HTTP/1.1" 200 24001
+2025-01-24 11:57:00,926 [INFO] "GET /prediction?page=6 HTTP/1.1" 200 10332
+2025-01-24 11:57:03,933 [INFO] "GET /prediction?page=1 HTTP/1.1" 200 24001
+2025-01-24 11:57:06,964 [INFO] "GET /generate-report/ HTTP/1.1" 200 12610
+2025-01-24 12:03:14,251 [INFO] "GET /generate-report/ HTTP/1.1" 200 14765
+2025-01-24 12:09:08,707 [INFO] "GET /generate-report/ HTTP/1.1" 200 15668
+2025-01-24 12:11:28,689 [INFO] "GET /generate-report/ HTTP/1.1" 200 15947
+2025-01-24 12:12:01,035 [INFO] "GET /generate-report/ HTTP/1.1" 200 15951
+2025-01-24 12:12:07,557 [INFO] "GET /admin-dashboard/ HTTP/1.1" 200 11398
+2025-01-24 12:12:14,973 [INFO] "GET /generate-report/ HTTP/1.1" 200 15951
+2025-01-24 12:12:48,106 [INFO] "GET /generate-report/ HTTP/1.1" 200 15891
+2025-01-24 12:17:55,012 [INFO] "GET /generate-report/ HTTP/1.1" 200 16116
+2025-01-24 12:21:28,811 [INFO] "GET /generate-report/ HTTP/1.1" 200 16093
+2025-01-24 12:21:37,988 [INFO] "GET /admin-dashboard/ HTTP/1.1" 200 11398
+2025-01-24 12:21:41,046 [INFO] "GET /generate-report/ HTTP/1.1" 200 16093
+2025-01-24 12:22:17,676 [INFO] "GET /generate-report/ HTTP/1.1" 200 16084
+2025-01-24 12:23:26,137 [INFO] "GET /generate-report/ HTTP/1.1" 200 16481
+2025-01-24 12:26:02,103 [INFO] "GET /generate-report/ HTTP/1.1" 200 16745
+2025-01-24 12:29:02,970 [INFO] "GET /generate-report/ HTTP/1.1" 200 16745
+2025-01-24 12:35:00,427 [INFO] "GET /generate-report/ HTTP/1.1" 200 16515
+2025-01-24 12:35:41,867 [INFO] "GET /generate-report/ HTTP/1.1" 200 16481
+2025-01-24 12:36:03,388 [INFO] "GET /generate-report/ HTTP/1.1" 200 16093
+2025-01-24 12:36:58,272 [INFO] "GET /generate-report/ HTTP/1.1" 200 16115
+2025-01-24 12:37:19,241 [INFO] "GET /generate-report/ HTTP/1.1" 200 16114
+2025-01-24 12:37:34,563 [INFO] "GET /generate-report/ HTTP/1.1" 200 16112
+2025-01-24 12:37:46,149 [INFO] "GET /generate-report/ HTTP/1.1" 200 16115
+2025-01-24 12:40:23,628 [INFO] D:\Project\WeedGuard\weedGuard\weedGuardApp\models.py changed, reloading.
+2025-01-24 12:44:08,822 [INFO] D:\Project\WeedGuard\weedGuard\weedGuardWebApp\views.py changed, reloading.
+2025-01-24 12:44:28,526 [INFO] D:\Project\WeedGuard\weedGuard\weedGuardWebApp\views.py changed, reloading.
+2025-01-24 12:44:45,413 [INFO] D:\Project\WeedGuard\weedGuard\weedGuardWebApp\views.py changed, reloading.
+2025-01-24 12:47:53,232 [INFO] D:\Project\WeedGuard\weedGuard\weedGuardWebApp\urls.py changed, reloading.
+2025-01-24 12:49:11,321 [INFO] D:\Project\WeedGuard\weedGuard\weedGuardWebApp\views.py changed, reloading.
+2025-01-24 12:56:05,029 [INFO] "GET /admin-dashboard/ HTTP/1.1" 200 11398
+2025-01-24 12:57:37,174 [INFO] "GET /logoutt/ HTTP/1.1" 302 0
+2025-01-24 12:57:37,199 [INFO] "GET /loginn/ HTTP/1.1" 200 6713
+2025-01-24 12:57:39,224 [INFO] "GET / HTTP/1.1" 200 13418
+2025-01-24 12:57:51,118 [ERROR] Internal Server Error: /contact/
+Traceback (most recent call last):
+  File "C:\Users\SHEMA 01\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SHEMA 01\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\sqlite3\base.py", line 357, in execute
+    return Database.Cursor.execute(self, query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such table: weedGuardApp_contactmessage
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\SHEMA 01\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 56, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SHEMA 01\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Project\WeedGuard\weedGuard\weedGuardWebApp\views.py", line 323, in create_contact_message
+    ContactMessage.objects.create(name=name, email=email, message=message)
+  File "C:\Users\SHEMA 01\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SHEMA 01\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\query.py", line 671, in create
+    obj.save(force_insert=True, using=self.db)
+  File "C:\Users\SHEMA 01\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\base.py", line 812, in save
+    self.save_base(
+  File "C:\Users\SHEMA 01\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\base.py", line 863, in save_base
+    updated = self._save_table(
+              ^^^^^^^^^^^^^^^^^
+  File "C:\Users\SHEMA 01\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\base.py", line 1006, in _save_table
+    results = self._do_insert(
+              ^^^^^^^^^^^^^^^^
+  File "C:\Users\SHEMA 01\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\base.py", line 1047, in _do_insert
+    return manager._insert(
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\SHEMA 01\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SHEMA 01\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\query.py", line 1791, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SHEMA 01\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\sql\compiler.py", line 1660, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\SHEMA 01\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\utils.py", line 102, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SHEMA 01\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SHEMA 01\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SHEMA 01\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\SHEMA 01\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\SHEMA 01\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SHEMA 01\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\sqlite3\base.py", line 357, in execute
+    return Database.Cursor.execute(self, query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such table: weedGuardApp_contactmessage
+2025-01-24 12:57:51,141 [ERROR] "POST /contact/ HTTP/1.1" 500 163594
+2025-01-24 13:02:33,869 [INFO] "GET /contact/ HTTP/1.1" 200 13418
+2025-01-24 13:02:42,156 [INFO] "POST /contact/ HTTP/1.1" 302 0
+2025-01-24 13:02:42,237 [INFO] "GET /contact/success/ HTTP/1.1" 200 2969
+2025-01-24 13:03:29,101 [INFO] "GET / HTTP/1.1" 200 13418
+2025-01-24 13:05:29,667 [INFO] D:\Project\WeedGuard\weedGuard\weedGuardWebApp\views.py changed, reloading.
+2025-01-24 13:09:45,053 [INFO] D:\Project\WeedGuard\weedGuard\weedGuardWebApp\views.py changed, reloading.
+2025-01-24 13:14:49,663 [INFO] D:\Project\WeedGuard\weedGuard\weedGuardWebApp\views.py changed, reloading.
+2025-01-24 13:15:19,330 [INFO] D:\Project\WeedGuard\weedGuard\weedGuardApp\models.py changed, reloading.
+2025-01-24 13:16:23,349 [INFO] D:\Project\WeedGuard\weedGuard\weedGuardWebApp\views.py changed, reloading.
+2025-01-24 13:16:59,294 [INFO] "GET / HTTP/1.1" 200 13545
+2025-01-24 13:17:12,827 [ERROR] Internal Server Error: /contact/
+Traceback (most recent call last):
+  File "C:\Users\SHEMA 01\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SHEMA 01\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\sqlite3\base.py", line 357, in execute
+    return Database.Cursor.execute(self, query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: table weedGuardApp_contactmessage has no column named phone
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\SHEMA 01\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 56, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SHEMA 01\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Project\WeedGuard\weedGuard\weedGuardWebApp\views.py", line 326, in create_contact_message
+    ContactMessage.objects.create(name=name, email=email, phone=phone, message=message)
+  File "C:\Users\SHEMA 01\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SHEMA 01\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\query.py", line 671, in create
+    obj.save(force_insert=True, using=self.db)
+  File "C:\Users\SHEMA 01\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\base.py", line 812, in save
+    self.save_base(
+  File "C:\Users\SHEMA 01\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\base.py", line 863, in save_base
+    updated = self._save_table(
+              ^^^^^^^^^^^^^^^^^
+  File "C:\Users\SHEMA 01\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\base.py", line 1006, in _save_table
+    results = self._do_insert(
+              ^^^^^^^^^^^^^^^^
+  File "C:\Users\SHEMA 01\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\base.py", line 1047, in _do_insert
+    return manager._insert(
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\SHEMA 01\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SHEMA 01\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\query.py", line 1791, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SHEMA 01\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\sql\compiler.py", line 1660, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\SHEMA 01\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\utils.py", line 102, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SHEMA 01\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SHEMA 01\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SHEMA 01\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\SHEMA 01\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\SHEMA 01\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SHEMA 01\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\sqlite3\base.py", line 357, in execute
+    return Database.Cursor.execute(self, query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: table weedGuardApp_contactmessage has no column named phone
+2025-01-24 13:17:12,840 [ERROR] "POST /contact/ HTTP/1.1" 500 164949
+2025-01-24 13:18:01,844 [INFO] "GET /contact/ HTTP/1.1" 200 13545
+2025-01-24 13:18:13,430 [INFO] "POST /contact/ HTTP/1.1" 302 0
+2025-01-24 13:18:13,446 [INFO] "GET /contact/success/ HTTP/1.1" 200 2969
+2025-01-24 13:18:20,898 [INFO] "GET / HTTP/1.1" 200 13545
+2025-01-24 13:20:26,872 [INFO] D:\Project\WeedGuard\weedGuard\weedGuardWebApp\urls.py changed, reloading.
+2025-01-24 13:21:43,104 [INFO] "GET / HTTP/1.1" 200 13545
+2025-01-24 13:21:50,172 [INFO] "GET /loginn/ HTTP/1.1" 200 6713
+2025-01-24 13:22:04,469 [INFO] "POST /loginn/ HTTP/1.1" 302 0
+2025-01-24 13:22:04,482 [INFO] "GET /loginn/ HTTP/1.1" 200 6713
+2025-01-24 13:22:17,839 [INFO] "POST /loginn/ HTTP/1.1" 302 0
+2025-01-24 13:22:17,974 [INFO] "GET /admin-dashboard/ HTTP/1.1" 200 11414
+2025-01-24 13:22:22,121 [INFO] "GET /contactmessages/ HTTP/1.1" 200 1178
+2025-01-24 13:25:39,769 [INFO] D:\Project\WeedGuard\weedGuard\weedGuardWebApp\views.py changed, reloading.
+2025-01-24 13:25:59,709 [ERROR] Internal Server Error: /contactmessages/
+Traceback (most recent call last):
+  File "C:\Users\SHEMA 01\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 56, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SHEMA 01\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Project\WeedGuard\weedGuard\weedGuardWebApp\views.py", line 345, in contactmessage_list
+    return render(request, 'weedGuardWebApp/contactmessage_list.html', {'messages': messages})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SHEMA 01\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SHEMA 01\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SHEMA 01\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: contactmessage_list.html
+2025-01-24 13:25:59,713 [ERROR] "GET /contactmessages/ HTTP/1.1" 500 90040
+2025-01-24 13:26:17,191 [INFO] D:\Project\WeedGuard\weedGuard\weedGuardWebApp\views.py changed, reloading.
+2025-01-24 13:26:42,593 [INFO] D:\Project\WeedGuard\weedGuard\weedGuardWebApp\views.py changed, reloading.
+2025-01-24 13:26:53,373 [INFO] D:\Project\WeedGuard\weedGuard\weedGuardWebApp\views.py changed, reloading.
+2025-01-24 13:27:11,334 [INFO] "GET /contactmessages/ HTTP/1.1" 200 7415
+2025-01-24 13:30:34,990 [INFO] "GET /contactmessages/ HTTP/1.1" 200 8085
+2025-01-24 13:30:53,353 [INFO] "GET /prediction HTTP/1.1" 200 24001
+2025-01-24 13:34:01,383 [INFO] "GET /admin-dashboard/ HTTP/1.1" 200 11414
+2025-01-24 13:34:03,631 [INFO] "GET /contactmessages/ HTTP/1.1" 200 8102
+2025-01-24 13:35:51,455 [INFO] "GET /contactmessages/ HTTP/1.1" 200 8528
+2025-01-24 13:35:54,904 [INFO] "GET /contactmessages/ HTTP/1.1" 200 8528
+2025-01-24 13:36:55,375 [INFO] "GET /contactmessages/ HTTP/1.1" 200 8536
+2025-01-24 13:39:15,196 [INFO] "GET /contactmessages/ HTTP/1.1" 200 6439
+2025-01-24 13:41:36,118 [INFO] "GET /contactmessages/ HTTP/1.1" 200 8044
+2025-01-24 13:41:36,262 [WARNING] "GET /static/assets/images/logo.png HTTP/1.1" 404 1825
+2025-01-24 13:42:23,980 [INFO] "GET /contactmessages/ HTTP/1.1" 200 8536
+2025-01-24 13:43:07,145 [INFO] "GET /contactmessages/ HTTP/1.1" 200 9547
+2025-01-24 13:43:56,101 [INFO] "GET /contactmessages/ HTTP/1.1" 200 9829
+2025-01-24 13:43:59,073 [INFO] "GET /contactmessages/ HTTP/1.1" 200 9829
+2025-01-24 13:46:07,172 [INFO] "GET /contactmessages/ HTTP/1.1" 200 9888
+2025-01-24 13:49:04,143 [INFO] "GET /prediction HTTP/1.1" 200 23908
+2025-01-24 13:49:19,763 [INFO] "GET /prediction/37/ HTTP/1.1" 200 6689
+2025-01-24 13:49:19,809 [INFO] "GET /media/predictions/prediction_T9LPXtT.jpg HTTP/1.1" 304 0
+2025-01-24 13:49:23,764 [INFO] "GET /prediction HTTP/1.1" 200 23908
+2025-01-24 13:56:22,067 [INFO] "GET /prediction HTTP/1.1" 200 23908
+2025-01-24 13:56:23,836 [INFO] "GET /contactmessages/ HTTP/1.1" 200 9892
+2025-01-24 13:56:26,553 [INFO] "GET /contactmessages/ HTTP/1.1" 200 9892
+2025-01-24 13:57:38,090 [INFO] "GET /contactmessages/ HTTP/1.1" 200 9817
+2025-01-24 13:58:15,773 [INFO] "GET /contactmessages/ HTTP/1.1" 200 9796
+2025-01-24 13:58:55,452 [INFO] "GET /contactmessages/ HTTP/1.1" 200 9888
+2025-01-24 13:59:16,032 [INFO] "GET /contactmessages/ HTTP/1.1" 200 9890
+2025-01-24 13:59:24,611 [INFO] "GET /prediction HTTP/1.1" 200 23908
+2025-01-24 13:59:47,841 [INFO] "GET /contactmessages/ HTTP/1.1" 200 9892
+2025-01-24 14:00:22,708 [INFO] "GET /contactmessages/ HTTP/1.1" 200 9892
+2025-01-24 14:00:26,060 [INFO] "GET /prediction HTTP/1.1" 200 23908
+2025-01-24 14:00:47,437 [INFO] "GET /contactmessages/ HTTP/1.1" 200 9892
+2025-01-24 14:00:50,036 [INFO] "GET /contactmessages/ HTTP/1.1" 200 9892
+2025-01-24 14:00:52,311 [INFO] "GET /prediction HTTP/1.1" 200 23908
+2025-01-24 14:01:10,599 [INFO] "GET /contactmessages/ HTTP/1.1" 200 9892
+2025-01-24 14:01:13,525 [INFO] "GET /contactmessages/ HTTP/1.1" 200 9892
+2025-01-24 14:01:15,353 [INFO] "GET /prediction HTTP/1.1" 200 23908
+2025-01-24 14:01:17,448 [INFO] "GET /contactmessages/ HTTP/1.1" 200 9892
+2025-01-24 14:01:55,736 [INFO] "GET /contactmessages/ HTTP/1.1" 200 9892
+2025-01-24 14:02:02,440 [INFO] "GET /prediction HTTP/1.1" 200 23908
+2025-01-24 14:04:36,489 [INFO] "GET /contactmessages/ HTTP/1.1" 200 9915
+2025-01-24 14:04:40,873 [INFO] "GET /contactmessages/ HTTP/1.1" 200 9915
+2025-01-24 14:07:30,763 [INFO] "GET /contactmessages/ HTTP/1.1" 200 9898
+2025-01-24 14:11:08,929 [INFO] "GET /contactmessages/ HTTP/1.1" 200 10112
+2025-01-24 14:11:39,188 [INFO] "GET /logoutt/ HTTP/1.1" 302 0
+2025-01-24 14:11:39,238 [INFO] "GET /loginn/ HTTP/1.1" 200 6713
+2025-01-24 14:11:42,232 [INFO] "GET / HTTP/1.1" 200 13545
+2025-01-24 14:11:49,022 [INFO] "POST /contact/ HTTP/1.1" 302 0
+2025-01-24 14:11:49,034 [INFO] "GET /contact/success/ HTTP/1.1" 200 2969
+2025-01-24 14:11:53,587 [INFO] "GET / HTTP/1.1" 200 13545
+2025-01-24 14:12:08,650 [INFO] D:\Project\WeedGuard\weedGuard\weedGuardWebApp\views.py changed, reloading.
+2025-01-24 14:12:35,637 [INFO] "GET /loginn/ HTTP/1.1" 200 6713
+2025-01-24 14:12:53,293 [INFO] "POST /loginn/ HTTP/1.1" 302 0
+2025-01-24 14:12:53,373 [INFO] "GET /admin-dashboard/ HTTP/1.1" 200 11414
+2025-01-24 14:12:56,383 [INFO] "GET /users/ HTTP/1.1" 200 28748
+2025-01-24 14:15:52,077 [INFO] D:\Project\WeedGuard\weedGuard\weedGuardWebApp\views.py changed, reloading.
+2025-01-24 14:16:12,260 [INFO] "GET /users/ HTTP/1.1" 200 22741
+2025-01-24 14:16:27,492 [INFO] D:\Project\WeedGuard\weedGuard\weedGuardWebApp\views.py changed, reloading.
+2025-01-24 14:16:40,175 [INFO] "GET /users/ HTTP/1.1" 200 19595
+2025-01-24 14:16:46,278 [INFO] "GET /users/?page=2 HTTP/1.1" 200 10379
+2025-01-24 14:16:51,690 [INFO] "GET /users/?page=1 HTTP/1.1" 200 19595
+2025-01-24 14:17:04,013 [INFO] "GET /predict HTTP/1.1" 200 11776
+2025-01-24 14:17:06,389 [INFO] "GET /contactmessages/ HTTP/1.1" 200 10668
+2025-01-24 14:19:59,047 [INFO] "GET /users/ HTTP/1.1" 200 20541
+2025-01-24 14:20:05,911 [INFO] "GET /users/ HTTP/1.1" 200 20541
+2025-01-24 14:21:42,823 [INFO] "GET /users/ HTTP/1.1" 200 20542
+2025-01-24 14:22:18,195 [INFO] "GET /prediction HTTP/1.1" 200 23908
+2025-01-24 14:22:23,774 [INFO] "GET /prediction?page=2 HTTP/1.1" 200 24405
+2025-01-24 14:22:37,619 [INFO] "GET /contactmessages/ HTTP/1.1" 200 10668
+2025-01-25 18:48:22,232 [WARNING] Unauthorized: /api/predictions-list/
+2025-01-25 18:48:22,238 [WARNING] "GET /api/predictions-list/ HTTP/1.1" 401 183
+2025-01-25 18:48:22,893 [WARNING] Not Found: /api/refresh-token/
+2025-01-25 18:48:22,893 [WARNING] "POST /api/refresh-token/ HTTP/1.1" 404 7731
+2025-01-25 18:48:36,354 [INFO] - Broken pipe from ('192.168.8.106', 50032)
+2025-01-25 18:49:07,644 [INFO] "POST /api/login/ HTTP/1.1" 200 573
+2025-01-25 18:49:17,838 [INFO] "POST /api/login/ HTTP/1.1" 200 562
+2025-01-25 18:49:19,831 [INFO] "GET /api/predictions-list/ HTTP/1.1" 200 18
+2025-01-25 18:49:20,030 [INFO] "GET /api/predictions-list/ HTTP/1.1" 200 873
+2025-01-25 18:49:23,512 [INFO] "GET /api/analytics/ HTTP/1.1" 200 224
+2025-01-25 18:49:27,675 [INFO] "GET /api/analytics/ HTTP/1.1" 200 796
+2025-01-25 18:49:50,109 [INFO] "GET /api/predictions-list/ HTTP/1.1" 200 873
+2025-01-25 18:50:20,082 [INFO] "GET /api/predictions-list/ HTTP/1.1" 200 873
+2025-01-25 18:50:44,364 [INFO] Prediction request from user: roger@gmail.com
+2025-01-25 18:50:44,629 [INFO] Temporary image saved: D:\Project\WeedGuard\weedGuard\temp_images\66ff7398-e1bc-483b-b26f-204c9de8f45a.jpg
+2025-01-25 18:50:47,597 [INFO] Prediction saved with ID: 38
+2025-01-25 18:50:47,599 [INFO] "POST /api/predict/ HTTP/1.1" 201 139
+2025-01-25 18:50:50,082 [INFO] "GET /api/predictions-list/ HTTP/1.1" 200 1060
+2025-01-25 18:51:20,088 [INFO] "GET /api/predictions-list/ HTTP/1.1" 200 1060
+2025-01-25 18:51:50,084 [INFO] "GET /api/predictions-list/ HTTP/1.1" 200 1060
+2025-01-25 18:52:20,089 [INFO] "GET /api/predictions-list/ HTTP/1.1" 200 1060
+2025-01-25 18:52:50,114 [INFO] "GET /api/predictions-list/ HTTP/1.1" 200 1060
+2025-01-25 18:53:15,790 [INFO] - Broken pipe from ('192.168.8.106', 50051)
+2025-01-25 19:32:13,470 [INFO] "GET / HTTP/1.1" 200 13545
+2025-01-25 19:32:16,557 [INFO] "GET /loginn/ HTTP/1.1" 200 6713
+2025-01-25 19:32:19,152 [INFO] "POST /loginn/ HTTP/1.1" 302 0
+2025-01-25 19:32:19,160 [INFO] "GET /loginn/ HTTP/1.1" 200 6713
+2025-01-25 19:32:22,927 [INFO] "POST /loginn/ HTTP/1.1" 302 0
+2025-01-25 19:32:22,933 [INFO] "GET /loginn/ HTTP/1.1" 200 6713
+2025-01-25 19:32:34,353 [INFO] "POST /loginn/ HTTP/1.1" 302 0
+2025-01-25 19:32:34,550 [INFO] "GET /admin-dashboard/ HTTP/1.1" 200 11414
+2025-01-25 19:32:34,583 [INFO] "GET /static/assets/images/user.jpg HTTP/1.1" 304 0
+2025-01-25 19:32:55,916 [INFO] "GET /prediction HTTP/1.1" 200 23908
+2025-01-25 19:33:05,412 [INFO] "GET /prediction?page=6 HTTP/1.1" 200 12507
+2025-01-25 19:33:07,862 [INFO] "GET /prediction?page=1 HTTP/1.1" 200 23908
+2025-01-25 19:33:10,189 [INFO] "GET /predict HTTP/1.1" 200 11776
+2025-01-25 19:33:15,329 [INFO] "GET /prediction HTTP/1.1" 200 23908
+2025-01-25 19:33:18,632 [INFO] "GET /users/ HTTP/1.1" 200 23674
+2025-01-25 19:33:26,361 [INFO] "GET /users/?page=2 HTTP/1.1" 200 11326
+2025-01-25 19:33:29,329 [INFO] "GET /users/?page=1 HTTP/1.1" 200 20542
+2025-01-25 19:33:31,955 [INFO] "GET /contactmessages/ HTTP/1.1" 200 10668
+2025-01-25 19:33:38,645 [INFO] "GET /generate-report/ HTTP/1.1" 200 16115
+2025-01-25 19:34:04,172 [INFO] "GET /admin-dashboard/ HTTP/1.1" 200 11414
+2025-01-25 19:34:14,796 [INFO] "GET /logoutt/ HTTP/1.1" 302 0
+2025-01-25 19:34:14,803 [INFO] "GET /loginn/ HTTP/1.1" 200 6713
+2025-01-25 19:34:18,532 [INFO] "GET / HTTP/1.1" 200 13545
+2025-01-25 19:34:26,352 [INFO] "POST /contact/ HTTP/1.1" 302 0
+2025-01-25 19:34:26,406 [INFO] "GET /contact/success/ HTTP/1.1" 200 2969
+2025-01-25 19:34:32,064 [INFO] "GET / HTTP/1.1" 200 13545

@@ -12,6 +12,8 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework_simplejwt.tokens import RefreshToken
 from .models import *
+import numpy as np
+from PIL import Image
 from django.contrib.auth import login
 from django.core.files.base import ContentFile
 from .serializers import *
@@ -99,6 +101,124 @@ class LoginView(APIView):
 
 
 # Prediction View
+import os
+import logging
+import uuid
+from django.conf import settings
+from django.http import JsonResponse
+from rest_framework.decorators import api_view, permission_classes
+from rest_framework.permissions import IsAuthenticated
+from rest_framework import status
+from .models import Prediction
+
+logger = logging.getLogger(__name__)
+
+# @api_view(['POST'])
+# @permission_classes([IsAuthenticated])
+# def predict_view(request):
+#     """
+#     Handle image prediction for authenticated users
+#     """
+#     try:
+#         # Log the authenticated user
+#         logger.info(f"Prediction request from user: {request.user.email}")
+
+#         # Validate image file
+#         if 'image' not in request.FILES:
+#             logger.warning("No image file provided in prediction request")
+#             return JsonResponse({
+#                 'error': 'No image file provided'
+#             }, status=status.HTTP_400_BAD_REQUEST)
+
+#         # Process uploaded image
+#         image_file = request.FILES['image']
+        
+#         # Validate file size (optional)
+#         max_upload_size = 5 * 1024 * 1024  # 5 MB
+#         if image_file.size > max_upload_size:
+#             logger.warning(f"Image file too large: {image_file.size} bytes")
+#             return JsonResponse({
+#                 'error': 'Image file too large. Maximum size is 5 MB'
+#             }, status=status.HTTP_400_BAD_REQUEST)
+
+#         # Validate file type (optional)
+#         allowed_extensions = ['.jpg', '.jpeg', '.png', '.gif']
+#         file_ext = os.path.splitext(image_file.name)[1].lower()
+#         if file_ext not in allowed_extensions:
+#             logger.warning(f"Invalid file type: {file_ext}")
+#             return JsonResponse({
+#                 'error': 'Invalid file type. Allowed types: jpg, jpeg, png, gif'
+#             }, status=status.HTTP_400_BAD_REQUEST)
+
+#         # Create secure temporary directory for image storage
+#         temp_dir = os.path.join(settings.BASE_DIR, 'temp_images')
+#         os.makedirs(temp_dir, exist_ok=True)
+
+#         # Generate unique filename to prevent conflicts
+#         unique_filename = f"{uuid.uuid4()}{file_ext}"
+#         temp_image_path = os.path.join(temp_dir, unique_filename)
+
+#         # Save image securely
+#         with open(temp_image_path, 'wb+') as destination:
+#             for chunk in image_file.chunks():
+#                 destination.write(chunk)
+
+#         logger.info(f"Temporary image saved: {temp_image_path}")
+
+#         try:
+#             # Perform prediction
+#             prediction_result = predict_image(temp_image_path)
+
+#             # Extract additional metadata
+#             location = request.POST.get('location', '')
+#             site_name = request.POST.get('site_name', '')
+
+#             # Create prediction record
+#             prediction = Prediction.objects.create(
+#                 user=request.user,
+#                 image=image_file,
+#                 result=prediction_result,
+#                 location=location,
+#                 site_name=site_name
+#             )
+
+#             # Clean up temporary file
+#             os.remove(temp_image_path)
+#             logger.info(f"Prediction saved with ID: {prediction.id}")
+
+#             # Prepare response
+#             prediction_data = {
+#                 'id': prediction.id,
+#                 'result': prediction_result,
+#                 'location': prediction.location,
+#                 'site_name': prediction.site_name,
+#                 'timestamp': prediction.timestamp.isoformat()
+#             }
+
+#             return JsonResponse(prediction_data, status=status.HTTP_201_CREATED)
+
+#         except Exception as prediction_error:
+#             # Handle prediction-specific errors
+#             logger.error(f"Prediction error: {str(prediction_error)}")
+            
+#             # Remove temporary file if prediction fails
+#             if os.path.exists(temp_image_path):
+#                 os.remove(temp_image_path)
+
+#             return JsonResponse({
+#                 'error': 'Image prediction failed',
+#                 'details': str(prediction_error)
+#             }, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+#     except Exception as global_error:
+#         # Catch any unexpected errors
+#         logger.critical(f"Unexpected error in prediction view: {str(global_error)}")
+#         return JsonResponse({
+#             'error': 'An unexpected error occurred during prediction'
+#         }, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+    
+logger = logging.getLogger(__name__)
+
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
 def predict_view(request):
@@ -118,7 +238,7 @@ def predict_view(request):
 
         # Process uploaded image
         image_file = request.FILES['image']
-        
+
         # Validate file size (optional)
         max_upload_size = 5 * 1024 * 1024  # 5 MB
         if image_file.size > max_upload_size:
@@ -141,7 +261,6 @@ def predict_view(request):
         os.makedirs(temp_dir, exist_ok=True)
 
         # Generate unique filename to prevent conflicts
-        import uuid
         unique_filename = f"{uuid.uuid4()}{file_ext}"
         temp_image_path = os.path.join(temp_dir, unique_filename)
 
@@ -153,7 +272,31 @@ def predict_view(request):
         logger.info(f"Temporary image saved: {temp_image_path}")
 
         try:
-            # Perform prediction
+            # Open the image using Pillow
+            image = Image.open(temp_image_path).convert('RGB')
+            image_array = np.array(image)
+
+            # Calculate the average color of the image
+            average_color = np.mean(image_array, axis=(0, 1))
+
+            # Define green color threshold (adjust as needed)
+            green_threshold = 100  # Minimum green value
+            red_blue_threshold = 150  # Maximum red and blue values
+
+            # Check if the image is predominantly green
+            is_green = (
+                average_color[1] > green_threshold and  # Green channel
+                average_color[0] < red_blue_threshold and  # Red channel
+                average_color[2] < red_blue_threshold  # Blue channel
+            )
+
+            if not is_green:
+                logger.warning("Uploaded image is not predominantly green")
+                return JsonResponse({
+                    'error': 'Uploaded image must be predominantly green'
+                }, status=status.HTTP_400_BAD_REQUEST)
+
+            # Perform prediction using your model
             prediction_result = predict_image(temp_image_path)
 
             # Extract additional metadata
@@ -187,7 +330,7 @@ def predict_view(request):
         except Exception as prediction_error:
             # Handle prediction-specific errors
             logger.error(f"Prediction error: {str(prediction_error)}")
-            
+
             # Remove temporary file if prediction fails
             if os.path.exists(temp_image_path):
                 os.remove(temp_image_path)
@@ -203,7 +346,7 @@ def predict_view(request):
         return JsonResponse({
             'error': 'An unexpected error occurred during prediction'
         }, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
-    
+       
 # List all predictions for the authenticated user
 class PredictionListView(generics.ListAPIView):
     serializer_class = PredictionSerializer

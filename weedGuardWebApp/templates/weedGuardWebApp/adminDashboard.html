@@ -72,13 +72,13 @@
             <nav class="flex-1">
                 <ul class="space-y-3">
                     <li>
-                        <a href="#" class="sidebar-link active-link flex items-center p-4 text-gray-700 rounded-lg">
+                        <a href="" class="sidebar-link active-link flex items-center p-4 text-gray-700 rounded-lg">
                             <i class="bi bi-house-door text-xl mr-4 text-green-500"></i>
                             <span class="font-medium">Dashboard</span>
                         </a>
                     </li>
                     <li>
-                        <a href="{% url 'prediction_create' %}" class="sidebar-link flex items-center p-4 text-gray-700 rounded-lg">
+                        <a href="{% url 'prediction_list' %}" class="sidebar-link flex items-center p-4 text-gray-700 rounded-lg">
                             <i class="bi bi-leaf text-xl mr-4 text-green-500"></i>
                             <span class="font-medium">Weed Control</span>
                         </a>
@@ -89,6 +89,13 @@
                             <span class="font-medium">Users</span>
                         </a>
                     </li>
+                    
+                     <li>
+    <a href="{% url 'contactmessage_list' %}" class="sidebar-link flex items-center p-4 text-gray-700 rounded-lg">
+        <i class="bi bi-envelope text-xl mr-4 text-green-500"></i>
+        <span class="font-medium">Contacted</span>
+    </a>
+</li>
                     <li>
                         <a href="{% url 'generate_report' %}" class="sidebar-link flex items-center p-4 text-gray-700 rounded-lg">
                             <i class="bi bi-bar-chart-line text-xl mr-4 text-green-500"></i>

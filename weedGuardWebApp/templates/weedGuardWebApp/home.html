@@ -301,14 +301,25 @@
     <h2>Contact Us</h2>
     <div class="container">
         <div class="row">
-            <div class="col-md-6">
-                <form class="footer-contact-form">
-                    <input type="text" class="form-control mb-3" placeholder="Your Name" required>
-                    <input type="email" class="form-control mb-3" placeholder="Your Email" required>
-                    <textarea class="form-control mb-3" placeholder="Your Message" rows="4" required></textarea>
-                    <button type="submit" class="btn btn-submit">Send Message</button>
-                </form>
-            </div>
+           <div class="col-md-6">
+    <form class="footer-contact-form" method="post" action="{% url 'create_contact_message' %}">
+        {% csrf_token %}
+        <!-- Name Input -->
+        <input type="text" class="form-control mb-3" name="name" placeholder="Your Name" required>
+
+        <!-- Email Input -->
+        <input type="email" class="form-control mb-3" name="email" placeholder="Your Email" required>
+
+        <!-- Phone Input -->
+        <input type="tel" class="form-control mb-3" name="phone" placeholder="Your Phone Number">
+
+        <!-- Message Textarea -->
+        <textarea class="form-control mb-3" name="message" placeholder="Your Message" rows="4" required></textarea>
+
+        <!-- Submit Button -->
+        <button type="submit" class="btn btn-submit">Send Message</button>
+    </form>
+</div>
             <div class="col-md-6">
                 <div class="social-icons">
                     <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>

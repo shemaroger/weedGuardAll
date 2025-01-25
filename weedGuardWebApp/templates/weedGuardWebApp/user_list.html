@@ -37,35 +37,54 @@
 <body class="bg-gradient-to-r from-green-50 to-gray-50 min-h-screen">
     <div class="flex h-screen">
         <!-- Sidebar -->
-        <aside class="w-64 bg-white shadow-lg transform transition-transform duration-300 ease-in-out">
-            <div class="p-6 border-b border-gray-100">
-                <div class="flex items-center">
-                    <img src="{% static 'assets/images/pngtree-sweet-potato-vegetarian-food-icon-and-vector-logo-png-image_1570272.jpg' %}" 
-                         alt="Logo" class="h-12 w-12 mr-3 rounded-full shadow-sm">
-                    <h1 class="text-xl font-bold text-green-600">Weed Guard</h1>
-                </div>
+        <div class="w-80 glass-effect shadow-lg p-6 flex flex-col">
+            <div class="flex items-center space-x-4 mb-10">
+                <img src="{% static 'assets/images/pngtree-sweet-potato-vegetarian-food-icon-and-vector-logo-png-image_1570272.jpg' %}" alt="WeedGuard Logo" class="w-12 h-12 rounded-xl shadow-md">
+                <h2 class="text-2xl font-bold bg-gradient-to-r from-green-600 to-green-400 bg-clip-text text-transparent">Weed Guard</h2>
             </div>
-            <nav class="mt-6 space-y-2 px-4">
-                <a href="#" class="sidebar-link flex items-center px-4 py-3 text-gray-700 rounded-lg">
-                    <i class="bi bi-house-door text-lg mr-3 text-green-500"></i> Dashboard
-                </a>
-                <a href="{% url 'prediction_create' %}" class="sidebar-link flex items-center px-4 py-3 text-gray-700 rounded-lg">
-                    <i class="bi bi-leaf text-lg mr-3 text-green-500"></i> Weed Control
-                </a>
-                <a href="{% url 'user_list' %}" class="sidebar-link active-link flex items-center px-4 py-3 text-gray-700 rounded-lg">
-                    <i class="bi bi-person-circle text-lg mr-3 text-green-500"></i> Users
-                </a>
-                <a href="{% url 'generate_report' %}" class="sidebar-link flex items-center px-4 py-3 text-gray-700 rounded-lg">
-                    <i class="bi bi-bar-chart-line text-lg mr-3 text-green-500"></i> Reports
-                </a>
+            
+            <nav class="flex-1">
+                <ul class="space-y-3">
+                    <li>
+                        <a href="{% url 'admin_dashboard' %}" class="sidebar-link flex items-center p-4 text-gray-700 rounded-lg">
+                            <i class="bi bi-house-door text-xl mr-4 text-green-500"></i>
+                            <span class="font-medium">Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'prediction_list' %}" class="sidebar-link flex items-center p-4 text-gray-700 rounded-lg">
+                            <i class="bi bi-leaf text-xl mr-4 text-green-500"></i>
+                            <span class="font-medium">Weed Control</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'user_list' %}" class="sidebar-link flex items-center active-link p-4 text-gray-700 rounded-lg">
+                            <i class="bi bi-person-circle text-xl mr-4 text-green-500"></i>
+                            <span class="font-medium">Users</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'contactmessage_list' %}" class="sidebar-link  flex items-center p-4 text-gray-700 rounded-lg">
+                            <i class="bi bi-envelope text-xl mr-4 text-green-500"></i>
+                            <span class="font-medium">Contacted</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'generate_report' %}" class="sidebar-link flex items-center p-4 text-gray-700 rounded-lg">
+                            <i class="bi bi-bar-chart-line text-xl mr-4 text-green-500"></i>
+                            <span class="font-medium">Reports</span>
+                        </a>
+                    </li>
+                </ul>
             </nav>
-            <div class="mt-auto p-6 border-t border-gray-100">
-                <a href="{% url 'logout' %}" class="flex items-center px-4 py-3 text-gray-700 hover:bg-red-50 rounded-lg transition">
-                    <i class="bi bi-box-arrow-right text-lg mr-3 text-red-500"></i> Logout
+
+            <div class="mt-auto pt-6 border-t border-gray-200">
+                <a href="{% url 'logout' %}" class="flex items-center p-4 text-gray-700 hover:bg-red-50 rounded-lg transition duration-300">
+                    <i class="bi bi-box-arrow-right text-xl mr-4 text-red-500"></i>
+                    <span class="font-medium">Logout</span>
                 </a>
             </div>
-        </aside>
-
+        </div>
         <!-- Main Content -->
         <main class="flex-1 overflow-y-auto p-8">
             <!-- Header -->
@@ -87,40 +106,42 @@
                     </a>
                 </div>
 
-               {% if messages %}
-    <div id="message-container" class="fixed top-4 right-4 z-50 space-y-2">
-        {% for message in messages %}
-            <div class="message-item bg-green-50 border-l-4 border-green-600 p-4 rounded-lg shadow-md flex items-center justify-between w-80 transform transition-all duration-300 ease-in-out hover:scale-105">
-                <div class="flex items-center space-x-3">
-                    <i class="bi bi-check-circle-fill text-green-600 text-lg"></i>
-                    <span class="text-sm text-green-600">{{ message }}</span>
-                </div>
-                <button onclick="this.parentElement.remove()" class="text-gray-400 hover:text-gray-600 transition">
-                    <i class="bi bi-x-lg text-sm"></i>
-                </button>
-            </div>
-        {% endfor %}
-    </div>
+                <!-- Messages -->
+                {% if messages %}
+                    <div id="message-container" class="fixed top-4 right-4 z-50 space-y-2">
+                        {% for message in messages %}
+                            <div class="message-item bg-green-50 border-l-4 border-green-600 p-4 rounded-lg shadow-md flex items-center justify-between w-80 transform transition-all duration-300 ease-in-out hover:scale-105">
+                                <div class="flex items-center space-x-3">
+                                    <i class="bi bi-check-circle-fill text-green-600 text-lg"></i>
+                                    <span class="text-sm text-green-600">{{ message }}</span>
+                                </div>
+                                <button onclick="this.parentElement.remove()" class="text-gray-400 hover:text-gray-600 transition">
+                                    <i class="bi bi-x-lg text-sm"></i>
+                                </button>
+                            </div>
+                        {% endfor %}
+                    </div>
 
-    <script>
-        // Auto-dismiss messages after 2 seconds
-        setTimeout(() => {
-            const messageContainer = document.getElementById('message-container');
-            if (messageContainer) {
-                messageContainer.remove();
-            }
-        }, 2000);
-    </script>
-{% endif %}
+                    <script>
+                        // Auto-dismiss messages after 2 seconds
+                        setTimeout(() => {
+                            const messageContainer = document.getElementById('message-container');
+                            if (messageContainer) {
+                                messageContainer.remove();
+                            }
+                        }, 2000);
+                    </script>
+                {% endif %}
+
                 <!-- User Table -->
                 <table class="min-w-full table-auto border-collapse rounded-lg overflow-hidden shadow-sm">
-                    <thead class="bg-gray-50">
+                    <thead class="bg-gradient-to-r from-green-600 to-green-500">
                         <tr>
-                            <th class="px-6 py-3 text-left text-sm font-medium text-gray-600">Full Name</th>
-                            <th class="px-6 py-3 text-left text-sm font-medium text-gray-600">Email</th>
-                            <th class="px-6 py-3 text-left text-sm font-medium text-gray-600">Role</th>
-                            <th class="px-6 py-3 text-left text-sm font-medium text-gray-600">Status</th>
-                            <th class="px-6 py-3 text-left text-sm font-medium text-gray-600">Actions</th>
+                            <th class="px-6 py-4 text-left text-sm font-medium text-white">Full Name</th>
+                            <th class="px-6 py-4 text-left text-sm font-medium text-white">Email</th>
+                            <th class="px-6 py-4 text-left text-sm font-medium text-white">Role</th>
+                            <th class="px-6 py-4 text-left text-sm font-medium text-white">Status</th>
+                            <th class="px-6 py-4 text-left text-sm font-medium text-white">Actions</th>
                         </tr>
                     </thead>
                     <tbody class="divide-y divide-gray-100">
@@ -158,6 +179,36 @@
                         {% endfor %}
                     </tbody>
                 </table>
+
+                <!-- Pagination -->
+                <div class="mt-6 flex justify-between items-center">
+                    <div class="text-sm text-gray-600">
+                        Showing {{ users.start_index }}-{{ users.end_index }} of {{ users.paginator.count }} Users
+                    </div>
+                    <div class="flex space-x-2">
+                        {% if users.has_previous %}
+                            <a href="?page=1" class="px-4 py-2 bg-white border border-gray-200 rounded-lg hover:bg-green-50 transition">
+                                <i class="bi bi-chevron-double-left text-gray-600"></i>
+                            </a>
+                            <a href="?page={{ users.previous_page_number }}" class="px-4 py-2 bg-white border border-gray-200 rounded-lg hover:bg-green-50 transition">
+                                <i class="bi bi-chevron-left text-gray-600"></i>
+                            </a>
+                        {% endif %}
+
+                        <span class="px-4 py-2 bg-green-600 text-white rounded-lg">
+                            Page {{ users.number }} of {{ users.paginator.num_pages }}
+                        </span>
+
+                        {% if users.has_next %}
+                            <a href="?page={{ users.next_page_number }}" class="px-4 py-2 bg-white border border-gray-200 rounded-lg hover:bg-green-50 transition">
+                                <i class="bi bi-chevron-right text-gray-600"></i>
+                            </a>
+                            <a href="?page={{ users.paginator.num_pages }}" class="px-4 py-2 bg-white border border-gray-200 rounded-lg hover:bg-green-50 transition">
+                                <i class="bi bi-chevron-double-right text-gray-600"></i>
+                            </a>
+                        {% endif %}
+                    </div>
+                </div>
             </section>
         </main>
     </div>

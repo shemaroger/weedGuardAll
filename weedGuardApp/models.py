@@ -7,6 +7,7 @@ from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
 from .managers import CustomUserManager
 import logging
 from django.contrib.postgres.fields import ArrayField
+from django.core.validators import RegexValidator
 
 class User(AbstractBaseUser, PermissionsMixin):
     ROLE_CHOICES = (
@@ -33,7 +34,7 @@ class User(AbstractBaseUser, PermissionsMixin):
 class Prediction(models.Model):
     image = models.ImageField(upload_to='predictions/')
     result = models.CharField(max_length=50)
-    timestamp = models.DateTimeField(auto_now_add=True)
+    timestamp = models.DateTimeField(default=timezone.now)  # Use timezone.now for time zone-aware timestamps
     location = models.CharField(max_length=255, null=True, blank=True)
     site_name = models.CharField(max_length=100, null=True, blank=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -44,3 +45,28 @@ class Prediction(models.Model):
     class Meta:
         verbose_name = "Prediction"
         verbose_name_plural = "Predictions"
+
+class ContactMessage(models.Model):
+    name = models.CharField(max_length=100, verbose_name="Your Name")
+    email = models.EmailField(verbose_name="Your Email")
+    phone = models.CharField(
+        max_length=15,
+        verbose_name="Your Phone Number",
+        blank=True,
+        null=True,
+        validators=[
+            RegexValidator(
+                regex=r'^\+?1?\d{9,15}$',
+                message="Phone number must be entered in the format: '+999999999'. Up to 15 digits allowed."
+            )
+        ]
+    )
+    message = models.TextField(verbose_name="Your Message")
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name="Created At")
+
+    def __str__(self):
+        return f"Message from {self.name} ({self.email})"
+
+    class Meta:
+        verbose_name = "Contact Message"
+        verbose_name_plural = "Contact Messages"
