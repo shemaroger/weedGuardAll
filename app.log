@@ -15965,3 +15965,28 @@ django.template.exceptions.TemplateDoesNotExist: contactmessage_list.html
 2025-01-25 19:34:26,352 [INFO] "POST /contact/ HTTP/1.1" 302 0
 2025-01-25 19:34:26,406 [INFO] "GET /contact/success/ HTTP/1.1" 200 2969
 2025-01-25 19:34:32,064 [INFO] "GET / HTTP/1.1" 200 13545
+2025-01-26 11:24:32,149 [WARNING] Unauthorized: /api/login/
+2025-01-26 11:24:32,184 [WARNING] "POST /api/login/ HTTP/1.1" 401 183
+2025-01-26 11:24:33,399 [WARNING] Not Found: /api/refresh-token/
+2025-01-26 11:24:33,499 [WARNING] "POST /api/refresh-token/ HTTP/1.1" 404 7731
+2025-01-26 11:24:48,676 [INFO] "POST /api/login/ HTTP/1.1" 200 562
+2025-01-26 11:24:52,434 [INFO] "GET /api/predictions-list/ HTTP/1.1" 200 1060
+2025-01-26 11:25:13,573 [INFO] - Broken pipe from ('192.168.3.115', 61846)
+2025-01-26 11:25:54,347 [INFO] "POST /api/login/ HTTP/1.1" 200 562
+2025-01-26 11:26:12,716 [INFO] "GET /api/predictions-list/ HTTP/1.1" 200 1060
+2025-01-26 11:26:43,232 [INFO] "GET /api/predictions-list/ HTTP/1.1" 200 1060
+2025-01-26 11:27:12,733 [INFO] "GET /api/predictions-list/ HTTP/1.1" 200 1060
+2025-01-26 11:27:42,639 [INFO] "GET /api/predictions-list/ HTTP/1.1" 200 1060
+2025-01-26 11:28:12,595 [INFO] "GET /api/predictions-list/ HTTP/1.1" 200 1060
+2025-01-26 11:28:42,745 [INFO] "GET /api/predictions-list/ HTTP/1.1" 200 1060
+2025-01-26 11:29:12,879 [INFO] "GET /api/predictions-list/ HTTP/1.1" 200 1060
+2025-01-26 11:29:22,458 [INFO] - Broken pipe from ('192.168.3.115', 61867)
+2025-01-26 11:31:58,698 [INFO] "POST /api/login/ HTTP/1.1" 200 562
+2025-01-26 11:33:18,933 [INFO] "GET /api/analytics/ HTTP/1.1" 200 955
+2025-01-26 12:04:48,070 [INFO] "POST /api/login/ HTTP/1.1" 200 562
+2025-01-26 12:04:54,477 [INFO] "GET /api/analytics/ HTTP/1.1" 200 955
+2025-01-26 12:05:11,985 [INFO] "GET /api/predictions-list/ HTTP/1.1" 200 1060
+2025-01-26 12:05:42,090 [INFO] "GET /api/predictions-list/ HTTP/1.1" 200 1060
+2025-01-26 12:06:11,877 [INFO] "GET /api/predictions-list/ HTTP/1.1" 200 1060
+2025-01-26 12:06:41,990 [INFO] "GET /api/predictions-list/ HTTP/1.1" 200 1060
+2025-01-26 12:07:11,867 [INFO] "GET /api/predictions-list/ HTTP/1.1" 200 1060
